@@ -1,0 +1,241 @@
+
+@font-face {
+    font-family: 'Playfair';
+    src: url('../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url('../fonts/Poppins-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+/*==========================================================*/
+
+body{
+    background: #fff;
+    width: 100%;
+}
+
+.creationSpace{
+    display: grid;
+    grid-template-columns: 20em 60em;
+    height: 95vh;
+    overflow: hidden;
+}
+
+/*=========================================================*/
+
+.chooses{
+    border-right: 2px solid rgb(255, 207, 135);
+    padding: 3em 0.5em 0 1.5em;
+    overflow-x: auto;
+}
+
+.chooses *{
+    display: none;
+}
+
+.chooses::-webkit-scrollbar{
+    width:0.75em;
+}
+.chooses::-webkit-scrollbar-thumb{
+    background: rgb(207, 207, 207);
+    border-radius: 5px;
+    height: 2px;
+}
+.chooses::-webkit-scrollbar-track{
+    background-color: rgb(165, 165, 165);
+}
+
+.chooses *{
+    margin-bottom: 1em;
+}
+
+/*----------------------------------------------------------*/
+
+.chooses .vues{
+    width: 15em;
+    height: 20em;
+    overflow: hidden;
+    border-radius: 0.5em;
+}
+
+.chooses .vues img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.chooses h3{
+    color: rgb(255, 162, 41);
+    font-weight: 600;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.chooses .game-color .color{
+    display: flex;
+    gap: 1em;
+}
+
+
+.chooses .game-color .color div{
+    width: 5em;
+    height: 2em;
+    border: 1px solid rgb(255, 162, 41);
+    border-radius: 0.25em;
+    background-color: rgb(240, 182, 182);
+}
+
+.choose-description{
+    position: relative;
+    top: -1.5em;
+}
+
+.chooses .choose-description p{
+    color:darkslategrey;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.chooses .game-color .color,
+.choose-description p{
+    position: relative;
+    top: -0.75em;
+}
+
+/*---------------------------------------------*/
+
+.chooses .send{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chooses .send button{
+    font-family: 'Poppins';
+    width: 12em;
+    height: 3.5em;
+    border-radius: 0.5em;
+    padding: 0.75em 1em;
+    border: 1px solid rgb(255, 202, 123);
+    font-weight: 700;
+    transition: letter-spacing 1s;
+
+}
+
+.chooses .send button:hover{
+    background-color: blanchedalmond;
+    letter-spacing: 1.5px;
+    border: 0;
+    outline: 0;    
+}
+
+
+
+/*================================================================*/
+
+.popUpSelect{
+    position: absolute;
+    top: 0;
+    left: 15%;
+    top: 15%;
+    height: 70%;
+    width: 70%;
+    background: linear-gradient(rgba(206, 139, 14, 0.664),rgba(199, 113, 0, 0.884));
+    backdrop-filter: blur(5px);
+    padding: 0.5em 0.5em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 15px rgb(165, 165, 165);
+
+}
+
+.unselect{
+    display: none;
+}
+
+.select-genre, 
+.select-categorie{
+    font-family: "Poppins";
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.popUpSelect .genre{
+    width: 25%;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Poppins-light';
+}
+
+.popUpSelect .genre label{
+    margin-right: 0.5em;
+}
+
+/*--------------------------------------------------*/
+
+.popUpSelect .categories div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins-light';
+    display: none;
+}
+
+/*--------------------------------------------------*/
+
+.popUpSelect .vetements{
+    padding: 0.5em;
+    width: 100%;
+    height: 20em;
+    border-top: 1px solid rgba(247, 200, 253, 0.39);
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    flex: none;
+    gap: 1em;
+    overflow-y: auto;
+    
+}
+
+.popUpSelect .vetements figure{
+    width: 12em;
+    height: 17em;
+    border-radius: 0.3em;
+    overflow: hidden;
+}
+
+.popUpSelect .vetements figure .model{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+
+}
+
+.popUpSelect .vetements figure figcaption{
+    width: 100%;
+    height: 25%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -10em;
+    border: 1px solid rgba(247, 200, 253, 0.39);
+    background-color: rgba(247, 200, 253, 0.192);
+    cursor:pointer;
+}
+
+.popUpSelect .vetements figure figcaption img{
+    width: 7em;
+    height: 3em;
+}

@@ -1,0 +1,96 @@
+
+@font-face {
+    font-family: 'Playfair';
+    src: url('../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url('../fonts/Poppins-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+
+.popUpProfil{
+    font-family: 'Poppins';
+    border: none;
+    position: absolute;
+    right:0;
+    top: 1.5em;
+    background-color: rgba(165, 165, 165, 0.397);
+    backdrop-filter: blur(9px);
+    height: 19em;
+    width: 20%;
+    border-radius: 0.5em;
+    padding: 0.25em 1em 1em 1em; 
+    margin-right: 0.5em;
+    filter: blur(0);
+    transition-delay: filter 2s;
+    transition: visibility 1s ease-in-out;
+    transition: top .5s ease-in-out;
+}
+
+.leaveStyle{
+    filter: blur(2px);
+    top: 2.5em;
+    visibility: hidden;
+    transition: .5s;
+}
+
+
+.popUpProfil .user{
+    border-bottom: 1px solid rgb(20, 20, 20);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4em;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.popUpProfil .user div{
+    display: flex;
+}
+
+.popUpProfil .user div img{
+    width: 3em;
+    height: 3em;
+    border-radius: 25px;
+    background-color: burlywood;
+    margin-right: 0.5em;
+}
+
+.popUpProfil .user div .infos p:first-child{
+    font-weight: 900;
+}
+
+.popUpProfil .user img:last-child{
+    align-self: flex-start;
+    
+}
+
+/*----------------------------------------------------*/
+
+.popUpProfil .container li{
+    list-style: none;
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.5em;
+}
+
+.popUpProfil .container li img{
+    margin-right: 0.5em;
+}
+
+.popUpProfil .container li a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+}
+
+
+

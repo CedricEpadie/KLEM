@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Playfair';
+    src: url('../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url('../fonts/Poppins-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+.chooseModel{
+    width: 100%;
+    padding: 1em;
+}
+
+.chooseModel header{
+    width: 100%;
+    font-family: 'Poppins';
+    font-size: 0.6em;
+}
+
+.chooseModel header h5{
+    font-size: medium;
+    font-family: 'Poppins-light';
+}
+
+.chooseModel header h1 span:first-child{
+    text-decoration: underline;
+}
+
+.choose{
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2em;
+}
+
+.choose .vues{
+    margin: 1em;
+    width: 15em;
+    height: 20em;
+    overflow: hidden;
+    border-radius: 0.5em;
+    border: 1px dashed red;
+    outline: 0;
+    box-shadow: 0 4px 10px rgba(156, 155, 155, 0.603);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   
+
+.choose .vues button{
+    border: 1px solid antiquewhite;
+    background-color: antiquewhite;
+    cursor:pointer;
+}
+.choose .vues button img{
+    width: 7em;
+    height: 3em;
+}
+
+.next{
+    font-family: 'Poppins';
+    width: 12em;
+    height: 3.5em;
+    border-radius: 0.5em;
+    padding: 0.75em 1em;
+    border: 1px solid rgb(255, 202, 123);
+    font-weight: 700;
+    transition: letter-spacing 1s;
+
+}
+
+.next:hover{
+    background-color: blanchedalmond;
+    letter-spacing: 1.5px;
+    border: 0;
+    outline: 0;    
+}

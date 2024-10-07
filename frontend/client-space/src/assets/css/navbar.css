@@ -1,0 +1,179 @@
+:root{
+    --yellow: #f0e800;
+    --marron: #46452e;
+    --black: #33332b;
+    --grey: rgba(240, 240, 240, 0.616);
+    --grey-white:rgb(204, 204, 204);
+    --white: #ffffff;
+
+    --jaune-fonce: #f0c711;
+    --jaune-clair: #e6f061;
+    --rose: #f011cc;
+    --voliet: #ba22f0;
+    --marron-clair: #959b3e;
+    --marron-fonce: #706740;
+
+    --color1: #d4552a;
+
+}
+
+
+@font-face {
+    font-family: 'Playfair';
+    src: url('../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url('../fonts/Poppins-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+/*body{
+    background: #fff;
+    width: 100%;
+}*/
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar{
+    width: 100%;
+    padding: 0.5em 2em 0 3em;
+    font-family: 'Playfair', 'serif';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+.navbar nav{
+    height: 5em;
+    width: 75%;
+    padding: 0 1em 0 1em;
+    display: flex;
+    align-items: center;
+    
+}
+
+/*######## Ici cette classe sera appelée dans le page de création de vetement pour modifier la navbar #######*/
+.navbar nav.createClothe{
+    background-color: rgb(255, 202, 123);
+    border-radius: 2em;
+}
+
+.navbar nav .logo{
+    width: 4em;
+    height: 4em;
+    margin-right: 4em;
+}
+
+.navbar nav .logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.navbar nav img{
+    width: 50%;
+    height: 100%;
+}
+
+.navbar nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65%;
+    color: var(--white);
+    margin-right: 8em;
+}
+
+.navbar nav li{
+    list-style: none;
+}
+
+.navbar nav ul a{
+    text-decoration: none;
+    color: var(--white);
+    letter-spacing: 2px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.navbar nav ul a:hover{
+    color: var(--jaune-fonce)
+}
+
+.navbar .notify-account{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 8em;
+    height: 3em;
+}
+
+.navbar .notify-account a,
+.navbar .notify-account button{
+    width: 40%;
+    height: 100%;
+    background-color: var(--jaune-fonce);
+    transition: .5s;
+    border-radius: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.navbar .notify-account button{
+    border:0;
+    outline:0;
+}
+
+
+.navbar .notify-account a img,
+.navbar .notify-account button img{
+    height: 50%;
+}
+
+
+
+.navbar .notify-account a:first-child{
+    border: 1px solid var(--jaune-fonce);
+    background-color: transparent;
+}
+
+/*==================================================*/
+.nav-active {
+    position: relative;
+
+}
+.nav-active::after {
+    content: "";
+    height: 4px;
+    width: 0;
+    background: yellow;
+    position: absolute;
+    border-radius: 10px;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-animation: anim 0.3s ease forwards;
+    animation: anim 0.6s ease forwards;
+}
+@-webkit-keyframes anim {
+    to {
+        width: 100%;
+    }
+}
+@keyframes anim {
+    to {
+    width: 100%;
+    }
+}
