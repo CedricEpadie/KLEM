@@ -148,7 +148,7 @@ class Commande(models.Model):
     address_livraison = models.CharField(max_length=200)
     address_facturation = models.CharField(max_length=200)
     remise = models.FloatField()
-    etat_livraison = models.CharField()
+    etat_livraison = models.CharField(max_length=200)
     date_livraison = models.DateField()
     
     moyen_paiement = models.ForeignKey(Mode_Paiement, related_name='mode_paiement', on_delete=models.SET_NULL, null=True)
@@ -194,7 +194,7 @@ class Abonnement(models.Model):
     duree = models.IntegerField()
     frequence_paiement = models.IntegerField()
     data_paiement = models.DateField()
-    etat = models.CharField()
+    etat = models.CharField(max_length=200)
     remise = models.FloatField()
     nbre_renouvellement = models.IntegerField()
     

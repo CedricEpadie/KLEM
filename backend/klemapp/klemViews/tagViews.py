@@ -1,8 +1,8 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from cocoaApp.models import Tag
-from cocoaApp.klemSerializer import TagSerializer
+from klemapp.models import Tag
+from klemapp.klemSerializer import TagSerializer
 
 class TagCreateView(APIView):
     def post(self, request):

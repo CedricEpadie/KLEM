@@ -1,8 +1,8 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from cocoaApp.models import Couturier
-from cocoaApp.klemSerializer import CouturierSerializer
+from klemapp.models import Couturier
+from klemapp.klemSerializer import CouturierSerializer
 
 class CouturierCreateView(APIView):
     def post(self, request):

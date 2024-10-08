@@ -1,12 +1,14 @@
-from klemapp.viewsPackages.klemViews.commentaireViews import CommentaireCreateView, CommentaireListView, CommentaireUpdateView, CommentaireDeleteView
-from .views import register, login_view, InscriptionView, TestUrl
+from .klemViews.commentaireViews import CommentaireCreateView, CommentaireListView, CommentaireUpdateView, CommentaireDeleteView
+# from .views import register, login_view, InscriptionView, TestUrl
+from django.urls import path
+from rest_framework.routers import DefaultRouter
 
 
 urlpatterns = [
-    path('test/', TestUrl, name='testUrl'),
-    path('inscription/', InscriptionView.as_view()),
-    path('register/', register, name='register'),
-    path('login/', login_view, name='login'),
+    # path('test/', CommentaireCreateView, name='testUrl'),
+    # path('inscription/', InscriptionView.as_view()),
+    # path('register/', register, name='register'),
+    # path('login/', login_view, name='login'),
    
 ]
 
@@ -27,7 +29,7 @@ urlpatterns += commentaire_urls + commentaireRouteur.urls
 
 
 # ===========| pays urls |========================
-from klemapp.viewsPackages.klemViews.paysViews import PaysCreateView, PaysListView, PaysUpdateView, PaysDeleteView
+from .klemViews.paysViews import PaysCreateView, PaysListView, PaysUpdateView, PaysDeleteView
 
 paysRouteur = DefaultRouter()
 # paysRouteur.register('pays_rest', paysViewset, basename='pays_viewset' )
@@ -42,7 +44,7 @@ urlpatterns += pays_urls + paysRouteur.urls
 
 
 # ===========| ville urls |========================
-from klemapp.viewsPackages.klemViews.villeViews import VilleCreateView, VilleListView, VilleUpdateView, VilleDeleteView
+from .klemViews.villeViews import VilleCreateView, VilleListView, VilleUpdateView, VilleDeleteView
 
 villeRouteur = DefaultRouter()
 # villeRouteur.register('ville_rest', villeViewset, basename='ville_viewset' )
@@ -56,7 +58,7 @@ urlpatterns += ville_urls + villeRouteur.urls
 
 
 # ===========| client urls |========================
-from klemapp.viewsPackages.klemViews.clientViews import ClientCreateView, ClientListView, ClientUpdateView, ClientDeleteView
+from .klemViews.clientViews import ClientCreateView, ClientListView, ClientUpdateView, ClientDeleteView
 
 clientRouteur = DefaultRouter()
 # clientRouteur.register('client_rest', clientViewset, basename='client_viewset' )
@@ -72,7 +74,7 @@ urlpatterns += client_urls + clientRouteur.urls
 
 
 # ===========| couturier urls |========================
-from klemapp.viewsPackages.klemViews.couturierViews import CouturierCreateView, CouturierListView, CouturierUpdateView, CouturierDeleteView
+from .klemViews.couturierViews import CouturierCreateView, CouturierListView, CouturierUpdateView, CouturierDeleteView
 
 couturierRouteur = DefaultRouter()
 # couturierRouteur.register('couturier_rest', couturierViewset, basename='couturier_viewset' )
@@ -87,7 +89,7 @@ urlpatterns += couturier_urls + couturierRouteur.urls
 
 
 # ===========| administrateur urls |========================
-from klemapp.viewsPackages.klemViews.administrateurViews import AdministrateurCreateView, AdministrateurListView, AdministrateurUpdateView, AdministrateurDeleteView
+from .klemViews.administrateurViews import AdministrateurCreateView, AdministrateurListView, AdministrateurUpdateView, AdministrateurDeleteView
 
 administrateurRouteur = DefaultRouter()
 # administrateurRouteur.register('administrateur_rest', administrateurViewset, basename='administrateur_viewset' )
@@ -102,7 +104,7 @@ urlpatterns += administrateur_urls + administrateurRouteur.urls
 
 
 # ===========| vetement urls |========================
-from klemapp.viewsPackages.klemViews.vetementViews import VetementCreateView, VetementListView, VetementUpdateView, VetementDeleteView
+from .klemViews.vetementViews import VetementCreateView, VetementListView, VetementUpdateView, VetementDeleteView
 
 vetementRouteur = DefaultRouter()
 # vetementRouteur.register('vetement_rest', vetementViewset, basename='vetement_viewset' )
@@ -117,7 +119,7 @@ urlpatterns += vetement_urls + vetementRouteur.urls
 
 
 # ===========| mode_paiement urls |========================
-from klemapp.viewsPackages.klemViews.mode_paiementViews import Mode_PaiementCreateView, Mode_PaiementListView, Mode_PaiementUpdateView, Mode_PaiementDeleteView
+from .klemViews.mode_paiementViews import Mode_PaiementCreateView, Mode_PaiementListView, Mode_PaiementUpdateView, Mode_PaiementDeleteView
 
 mode_paiementRouteur = DefaultRouter()
 # mode_paiementRouteur.register('mode_paiement_rest', mode_paiementViewset, basename='mode_paiement_viewset' )
@@ -132,7 +134,7 @@ urlpatterns += mode_paiement_urls + mode_paiementRouteur.urls
 
 
 # ===========| commande urls |========================
-from klemapp.viewsPackages.klemViews.commandeViews import CommandeCreateView, CommandeListView, CommandeUpdateView, CommandeDeleteView
+from .klemViews.commandeViews import CommandeCreateView, CommandeListView, CommandeUpdateView, CommandeDeleteView
 
 commandeRouteur = DefaultRouter()
 # commandeRouteur.register('commande_rest', commandeViewset, basename='commande_viewset' )
@@ -146,7 +148,7 @@ urlpatterns += commande_urls + commandeRouteur.urls
 
 
 # ===========| abonnement urls |========================
-from klemapp.viewsPackages.klemViews.abonnementViews import AbonnementCreateView, AbonnementListView, AbonnementUpdateView, AbonnementDeleteView
+from .klemViews.abonnementViews import AbonnementCreateView, AbonnementListView, AbonnementUpdateView, AbonnementDeleteView
 
 abonnementRouteur = DefaultRouter()
 # abonnementRouteur.register('abonnement_rest', abonnementViewset, basename='abonnement_viewset' )
@@ -160,7 +162,7 @@ urlpatterns += abonnement_urls + abonnementRouteur.urls
 
 
 # ===========| souscription urls |========================
-from klemapp.viewsPackages.klemViews.souscriptionViews import SouscriptionCreateView, SouscriptionListView, SouscriptionUpdateView, SouscriptionDeleteView
+from .klemViews.souscriptionViews import SouscriptionCreateView, SouscriptionListView, SouscriptionUpdateView, SouscriptionDeleteView
 
 souscriptionRouteur = DefaultRouter()
 # souscriptionRouteur.register('souscription_rest', souscriptionViewset, basename='souscription_viewset' )
@@ -174,7 +176,7 @@ urlpatterns += souscription_urls + souscriptionRouteur.urls
 
 
 # ===========| devis urls |========================
-from klemapp.viewsPackages.klemViews.devisViews import DevisCreateView, DevisListView, DevisUpdateView, DevisDeleteView
+from .klemViews.devisViews import DevisCreateView, DevisListView, DevisUpdateView, DevisDeleteView
 
 devisRouteur = DefaultRouter()
 # devisRouteur.register('devis_rest', devisViewset, basename='devis_viewset' )
@@ -188,7 +190,7 @@ urlpatterns += devis_urls + devisRouteur.urls
 
 
 # ===========| tag urls |========================
-from klemapp.viewsPackages.klemViews.tagViews import TagCreateView, TagListView, TagUpdateView, TagDeleteView
+from .klemViews.tagViews import TagCreateView, TagListView, TagUpdateView, TagDeleteView
 
 tagRouteur = DefaultRouter()
 # tagRouteur.register('tag_rest', tagViewset, basename='tag_viewset' )
@@ -202,7 +204,7 @@ urlpatterns += tag_urls + tagRouteur.urls
 
 
 # ===========| categorie_article urls |========================
-from klemapp.viewsPackages.klemViews.categorie_articleViews import Categorie_articleCreateView, Categorie_articleListView, Categorie_articleUpdateView, Categorie_articleDeleteView
+from .klemViews.categorie_articleViews import Categorie_articleCreateView, Categorie_articleListView, Categorie_articleUpdateView, Categorie_articleDeleteView
 
 categorie_articleRouteur = DefaultRouter()
 # categorie_articleRouteur.register('categorie_article_rest', categorie_articleViewset, basename='categorie_article_viewset' )
@@ -217,7 +219,7 @@ urlpatterns += categorie_article_urls + categorie_articleRouteur.urls
 
 
 # ===========| article urls |========================
-from klemapp.viewsPackages.klemViews.articleViews import ArticleCreateView, ArticleListView, ArticleUpdateView, ArticleDeleteView
+from .klemViews.articleViews import ArticleCreateView, ArticleListView, ArticleUpdateView, ArticleDeleteView
 
 articleRouteur = DefaultRouter()
 # articleRouteur.register('article_rest', articleViewset, basename='article_viewset' )
@@ -232,7 +234,7 @@ urlpatterns += article_urls + articleRouteur.urls
 
 
 # ===========| article_tag urls |========================
-from klemapp.viewsPackages.klemViews.article_tagViews import Article_tagCreateView, Article_tagListView, Article_tagUpdateView, Article_tagDeleteView
+from .klemViews.article_tagViews import Article_tagCreateView, Article_tagListView, Article_tagUpdateView, Article_tagDeleteView
 
 article_tagRouteur = DefaultRouter()
 # article_tagRouteur.register('article_tag_rest', article_tagViewset, basename='article_tag_viewset' )

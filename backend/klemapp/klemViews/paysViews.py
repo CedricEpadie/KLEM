@@ -1,8 +1,8 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from cocoaApp.models import Pays
-from cocoaApp.klemSerializer import PaysSerializer
+from klemapp.models import Pays
+from klemapp.klemSerializer import PaysSerializer
 
 class PaysCreateView(APIView):
     def post(self, request):
