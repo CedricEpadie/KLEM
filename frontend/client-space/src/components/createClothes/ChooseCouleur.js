@@ -21,7 +21,7 @@ const ChooseCouleur = () => {
                     <textarea name="description" id="description" cols="60" rows="10" placeholder='Description' maxLength={500}></textarea>
                 </div>
             </div>
-            <button>Terminer</button>
+            <button className='terminer'>Terminer</button>
         </div>
     );
 };

@@ -143,20 +143,25 @@ body{
 .popUpSelect{
     position: absolute;
     top: 0;
-    left: 15%;
+    left: 18%;
     top: 15%;
-    height: 70%;
-    width: 70%;
+    height: 34em;
+    width: 55em;
     background: linear-gradient(rgba(206, 139, 14, 0.664),rgba(199, 113, 0, 0.884));
     backdrop-filter: blur(5px);
     padding: 0.5em 0.5em;
     border-radius: 0.5em;
     box-shadow: 0 0 15px rgb(165, 165, 165);
-
+    visibility: visible;
+    transition: 2s;
+    filter: blur(0);
 }
 
+
+
 .unselect{
-    display: none;
+    visibility: hidden;
+    filter: blur(5px);
 }
 
 .select-genre, 
@@ -192,11 +197,37 @@ body{
 
 /*--------------------------------------------------*/
 
+.popUpSelect .button,
+.popUpSelect ._cancel{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popUpSelect .button{
+    margin-top: 0.5em;
+}
+
+.popUpSelect ._cancel{
+    position: absolute;
+    right: 0.1em;
+    top: -0.05em;
+    
+}
+
+.popUpSelect ._cancel img{
+    width: 2.5em;
+    height: 2.5em;
+}
+
+/*--------------------------------------------------*/
+
 .popUpSelect .vetements{
     padding: 0.5em;
     width: 100%;
     height: 20em;
     border-top: 1px solid rgba(247, 200, 253, 0.39);
+    border-bottom: 1px solid rgba(247, 200, 253, 0.39);
     margin-top: 2em;
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -238,4 +269,28 @@ body{
 .popUpSelect .vetements figure figcaption img{
     width: 7em;
     height: 3em;
+}
+
+
+.popUpSelect .validate{
+    font-family: 'Poppins';
+    width: 12em;
+    height: 3.5em;
+    border-radius: 0.5em;
+    padding: 0.75em 1em;
+    border: 2px solid rgba(255, 138, 130, 0.432);
+    font-weight: 700;
+    transition: letter-spacing 1s;
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+
+.popUpSelect .validate:hover{
+    background-color: rgb(255, 202, 123);
+    letter-spacing: 1.5px;
+    border: 0;
+    outline: 0;
+    color: #fff;  
+    font-weight: 800;
+    letter-spacing: 3.5px;
 }

@@ -23,7 +23,7 @@ const ChooseModel = () => {
                         </button>
                     </div>
             </section>
-            <button className="next">Étape suivante</button>
+            <button className="next" id='button-next'>Étape suivante</button>
         </div>
     );
 };

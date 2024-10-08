@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import HeaderAcceuil from '../components/AcceuilClient/HeaderAcceuil';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import '../assets/css/createClothes.css'
 import NavBar from '../components/NavBar';
 import PopUpProfil from '../components/PopUpProfil';
@@ -16,10 +14,19 @@ const CreateClothes = () => {
         profilBtn.addEventListener('click',()=>{
             profilPopUp.classList.remove('leaveStyle')
         })
-        /*------------------------------------------*/
-
         let navbar = document.querySelector(".navbar nav")
         navbar.classList.add("createClothe")
+
+
+        let nextButton = document.querySelector("#button-next")
+        let popUpSelect = document.querySelector(".popUpSelect")
+
+        nextButton.addEventListener("click",()=>{
+            popUpSelect.classList.remove("unselect")
+        })
+        
+        let cancelButton = document.querySelector("._cancel")
+        console.log(cancelButton)
 
     })
 
@@ -60,9 +67,12 @@ const CreateClothes = () => {
                         <button>Commander</button>
                    </div>
                 </div>
-                < ChooseCouleur/>
-                {/*<ChooseModel />*/}
+                {/*< ChooseCouleur/>*/}
+                <ChooseModel />
                 <div className="popUpSelect unselect">
+                    <div className="_cancel">
+                        <img src="./img/icons/_cancel.ico" alt="cancel" />
+                    </div>
                     <h4 className="select-genre">Genre: </h4>
                     <div className="genre">
                         <span>
@@ -131,6 +141,12 @@ const CreateClothes = () => {
                             <figcaption>
                                 <img src="./img/icons/upload.svg" alt="upload" />                            
                             </figcaption>
+                        </figure>                        
+                        <figure>
+                            <img src="./img/models/boubou.jpg" alt="vetement" className='model'/>
+                            <figcaption>
+                                <img src="./img/icons/upload.svg" alt="upload" />                            
+                            </figcaption>
                         </figure>
                         <figure>
                             <img src="./img/models/boubou.jpg" alt="vetement" className='model'/>
@@ -145,6 +161,9 @@ const CreateClothes = () => {
                             </figcaption>
                         </figure>
                         
+                    </div>
+                    <div className='button'>
+                        <button className='validate'>Valider</button>
                     </div>
                 </div>
             </div>
