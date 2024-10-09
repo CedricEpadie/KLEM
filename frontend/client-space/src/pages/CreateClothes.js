@@ -9,7 +9,7 @@ const CreateClothes = () => {
     
     
     useEffect(()=>{
-        let profilBtn = document.querySelector('.notify-account button')
+        /*let profilBtn = document.querySelector('.notify-account button')
         let profilPopUp = document.querySelector('.popUpProfil')
         profilBtn.addEventListener('click',()=>{
             profilPopUp.classList.remove('leaveStyle')
@@ -26,7 +26,7 @@ const CreateClothes = () => {
         })
         
         let cancelButton = document.querySelector("._cancel")
-        console.log(cancelButton)
+        console.log(cancelButton)*/
 
     })
 

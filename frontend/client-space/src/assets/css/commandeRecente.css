@@ -1,0 +1,113 @@
+:root{
+    --yellow: #f0e800;
+    --marron: #46452e;
+    --black: #33332b;
+    --grey: rgba(240, 240, 240, 0.616);
+    --grey-white:rgb(204, 204, 204);
+    --white: #ffffff;
+
+    --jaune-fonce: #f0c711;
+    --jaune-clair: #e6f061;
+    --rose: #f011cc;
+    --voliet: #ba22f0;
+    --marron-clair: #959b3e;
+    --marron-fonce: #706740;
+
+    --color1: #d4552a;
+}
+
+
+@font-face {
+    font-family: 'Playfair';
+    src: url('../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url('../fonts/Poppins-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+.containt{
+}
+
+
+.commande-recentes{
+    padding: 0 0.5em 0.5em 2em; 
+    background-color: var(--grey-white);
+}
+
+.commande-recentes .commandes{
+    display: flex;
+    flex-direction: column;
+}
+
+.commande-recentes h2{
+    width: max-content;
+    font-family: 'Poppins';
+    font-weight: bold;
+    color:#46452e;
+    margin-bottom: 0.25em;
+    border-bottom: 2px solid #46452e;
+
+}
+
+.commande-recentes .vide{
+    text-align: center;
+    font-size: 4em;
+    font-family: 'Poppins';
+    margin-top: 0.5em;
+    letter-spacing: 0.25em;
+    font-weight: bolder;
+    width: 75%;
+    align-self: center;
+    color: grey;
+    display: none;
+}
+
+.commande-recentes .commandes .figures{
+    display: grid;
+    grid-template-columns: 1fr;
+    flex: none;
+    gap: 0.5em;
+    padding: 1em;
+    
+}
+
+
+.commande-recentes .figures figure{
+    width: 100%;
+    height: 6em;
+    display: grid;
+    flex: none;
+    grid-template-columns: max-content 3fr 1fr;
+    gap: 1em;
+    padding: 0.5em;
+    box-shadow: 0 3px 10px rgba(128, 128, 128, 0.842);
+    overflow: hidden;
+
+}
+
+.commande-recentes .figures figure img{
+    width: 5em;
+    height: 5em;
+    border-radius: 0.5em;
+    object-fit: cover;
+    background-size: cover;
+    
+}
+
+.commande-recentes .figures figure .details{
+    font-family: "Poppins";   
+    font-size: small;
+}
+
+.commande-recentes .figures .details-client{
+    overflow-y: auto;
+    border-bottom: 2px solid var(--black);
+    margin-right: 0.5em ;
+    font-family: "Poppins-light";
+}

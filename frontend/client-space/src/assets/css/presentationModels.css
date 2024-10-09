@@ -1,0 +1,200 @@
+:root{
+    --yellow: #f0e800;
+    --marron: #46452e;
+    --black: #33332b;
+    --grey: rgba(240, 240, 240, 0.616);
+    --grey-white:rgb(204, 204, 204);
+    --white: #ffffff;
+
+    --jaune-fonce: #f0c711;
+    --jaune-clair: #e6f061;
+    --rose: #f011cc;
+    --voliet: #ba22f0;
+    --marron-clair: #959b3e;
+    --marron-fonce: #706740;
+
+    --color1: #d4552a;
+}
+
+
+@font-face {
+    font-family: 'Playfair';
+    src: url('../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: 'Poppins-light';
+    src: url('../fonts/Poppins-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+
+.models{
+    background-color: var(--grey-white);   
+}
+
+.models .title{
+    width: 100%;
+    text-align: center;
+    padding-top: 3em;
+    font-family: 'Poppins';
+    color: var(--marron);
+    line-height: 2em;
+}
+
+.models .title h2{
+    color: #fff;
+}
+
+
+.models .sections{
+    padding: 0 2em 2em 2em;
+}
+
+
+.models .sections h3{
+    font-family: sans-serif;
+    margin-left:2em;
+}
+
+.models .sections section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+.models .sections section .scroll{
+    width: 85%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    align-self: center;
+}
+
+.models .sections section .images{
+    height: 22em;
+    width: max-content;    
+    display: flex;
+    position: relative;
+    /*mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 10% 70%,
+        transparent
+    );*/
+}
+
+
+.models .sections section figure {
+    margin: 1em;
+    width: 15em;
+    height: 20em;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 1em;
+    border: 0;
+    outline: 0;
+    box-shadow: 4px 4px 10px rgba(138, 138, 138, 0.664);
+    background-color: rgba(255, 183, 183, 0.616);/*rgba(251, 255, 0, 0.452);*/
+    color: var(--white);
+    transition: box-shadow 1s;
+    transition: transform 0.5s;
+}
+
+
+.models .sections section figure img{
+    position: relative;
+    z-index: 5;
+    object-fit: cover;
+    background-size: cover;
+    width:100%;
+    height: 80%;
+    transition: .5s;
+}
+
+.models .sections section figure img:hover {
+    object-fit: cover;
+    background-size: cover;
+    transform: scale(1.05);
+    box-shadow: 4px 0 5px rgb(165, 165, 165);
+}
+
+.models .sections section figure figcaption{
+    position: relative;
+    z-index: 100;
+    margin-left: 1em;
+    padding-right: 1em;
+    font-size: small;
+    font-family: 'Poppins';
+}
+
+.models .sections section figure figcaption p{
+    border-bottom: 1px solid var(--grey);
+}
+
+.models .sections section figure figcaption .prix .monnaie{
+    color: var(--grey);
+    font-weight: 900;
+}
+
+.models .sections .autres{
+    width: 100%;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.models .sections .autres a{
+    font-family: 'Poppins';
+    text-decoration: none;
+    color:#fff;
+    padding: 0.75em 1em;
+    border: 1px solid yellow;
+    font-weight: 700;
+    transition: letter-spacing 1s;
+
+}
+
+.models .sections .autres a:hover{
+    background-color: var(--yellow);
+    letter-spacing: 2px;
+    border: 0;
+    outline: 0;    
+}
+
+/*=========================  SCROLL BUTTONS   =============================*/
+
+.scroll-button{
+    position: relative;
+    bottom: 1em;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-button button{
+    transform: scale(.8);
+    margin: 0 2em 0 2em;
+    overflow: hidden;
+    height: 3em;
+    width: 3em;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    width:max-content;
+    height:max-content;
+    transition: .25s;
+}
+
+.scroll-button button:hover{
+    transform: scale(.95);
+}
+
+.scroll-button button img{
+    height: 100%;
+    width: 100%;
+    border:0;
+    outline: 0;
+}
