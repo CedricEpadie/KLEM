@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../assets/css/chooseModel.css'
 
+
 const ChooseModel = () => {
+
+
     return (
         <div className='chooseModel'>
             <header>
@@ -14,12 +17,12 @@ const ChooseModel = () => {
             <section className='choose'>
                     <div className="vues">
                         <button>
-                            <img src="./img/icons/upload.svg" alt="upload" />
+                            <img src="./img/icons/image.svg" alt="image" className='upload'/>
                         </button>
                     </div>
                     <div className="vues">
                         <button>
-                            <img src="./img/icons/upload.svg" alt="upload" />
+                            <img src="./img/icons/image.svg" alt="image" className='upload'/>
                         </button>
                     </div>
             </section>

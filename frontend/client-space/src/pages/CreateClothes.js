@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../assets/css/createClothes.css'
 import NavBar from '../components/NavBar';
 import PopUpProfil from '../components/PopUpProfil';
@@ -7,26 +7,35 @@ import ChooseCouleur from '../components/createClothes/ChooseCouleur';
 
 const CreateClothes = () => {
     
-    
+
     useEffect(()=>{
-        /*let profilBtn = document.querySelector('.notify-account button')
+        let navbar = document.querySelector(".navbar nav")
+        navbar.classList.add("createClothe")
+        /* --------------------------------------------------------------- */
+        let profilBtn = document.querySelector('.notify-account button')
         let profilPopUp = document.querySelector('.popUpProfil')
         profilBtn.addEventListener('click',()=>{
             profilPopUp.classList.remove('leaveStyle')
         })
-        let navbar = document.querySelector(".navbar nav")
-        navbar.classList.add("createClothe")
+        /* -------------------------------------------------------------- */
 
-
-        let nextButton = document.querySelector("#button-next")
+        let uplodImage = document.querySelectorAll('.upload')
         let popUpSelect = document.querySelector(".popUpSelect")
+        let popUpSelectCloseButton = document.querySelector(".popUpSelect ._cancel img")
 
-        nextButton.addEventListener("click",()=>{
-            popUpSelect.classList.remove("unselect")
+        uplodImage.forEach(button => {
+            button.addEventListener("click",()=>{
+                popUpSelect.classList.remove("unselect")
+                chooseImage()
+            })
         })
-        
-        let cancelButton = document.querySelector("._cancel")
-        console.log(cancelButton)*/
+        popUpSelectCloseButton.addEventListener("click",()=>{
+            popUpSelect.classList.add("unselect")
+        })
+
+        /* ------------------------------------------------------------- */
+
+
 
     })
 
@@ -38,11 +47,13 @@ const CreateClothes = () => {
             <div className="creationSpace">
                 <div className="chooses">
                    <div className="choose-container">
-                        <div className="vues">
+                        <div className="images">
+                            <div className="vues">
                             <img src="./img/models/boubou2.jpg" alt="" />
-                        </div>
-                        <div className="vues">
+                            </div>
+                            <div className="vues">
                             <img src="./img/models/boubou2.jpg" alt="" />
+                            </div>
                         </div>
                         <div className="game-color">
                             <h3>Teintes et  couleur</h3>
@@ -68,7 +79,7 @@ const CreateClothes = () => {
                    </div>
                 </div>
                 {/*< ChooseCouleur/>*/}
-                <ChooseModel />
+                <ChooseModel/>
                 <div className="popUpSelect unselect">
                     <div className="_cancel">
                         <img src="./img/icons/_cancel.ico" alt="cancel" />
@@ -141,24 +152,6 @@ const CreateClothes = () => {
                             <figcaption>
                                 <img src="./img/icons/upload.svg" alt="upload" />                            
                             </figcaption>
-                        </figure>                        
-                        <figure>
-                            <img src="./img/models/boubou.jpg" alt="vetement" className='model'/>
-                            <figcaption>
-                                <img src="./img/icons/upload.svg" alt="upload" />                            
-                            </figcaption>
-                        </figure>
-                        <figure>
-                            <img src="./img/models/boubou.jpg" alt="vetement" className='model'/>
-                            <figcaption>
-                                <img src="./img/icons/upload.svg" alt="upload" />                            
-                            </figcaption>
-                        </figure>
-                        <figure>
-                            <img src="./img/models/boubou.jpg" alt="vetement" className='model'/>
-                            <figcaption>
-                                <img src="./img/icons/upload.svg" alt="upload" />                            
-                            </figcaption>
                         </figure>
                         
                     </div>
@@ -172,3 +165,21 @@ const CreateClothes = () => {
 };
 
 export default CreateClothes;
+
+
+function chooseImage(){
+
+    let listImages = document.querySelectorAll(".vetements figure")
+    let chooseContainerImages = document.querySelector(".choose-container .images")
+
+
+    console.log(chooseContainerImages)
+
+    listImages.forEach(image =>{
+        image.lastElementChild.addEventListener("click",()=>{
+            console.log(image)
+        })
+    })
+
+
+}
