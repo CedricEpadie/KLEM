@@ -6,7 +6,7 @@ import ChooseModel from '../components/createClothes/ChooseModel';
 import ChooseCouleur from '../components/createClothes/ChooseCouleur';
 
 const CreateClothes = () => {
-    
+    const [vetementList,setVetementList] = useState('')
 
     useEffect(()=>{
         let navbar = document.querySelector(".navbar nav")
@@ -26,7 +26,6 @@ const CreateClothes = () => {
         uplodImage.forEach(button => {
             button.addEventListener("click",()=>{
                 popUpSelect.classList.remove("unselect")
-                chooseImage()
             })
         })
         popUpSelectCloseButton.addEventListener("click",()=>{
@@ -34,7 +33,20 @@ const CreateClothes = () => {
         })
 
         /* ------------------------------------------------------------- */
-
+        let chooseList = document.querySelector('.choose-container')
+        let figureList = document.querySelectorAll('.vetements figure figcaption img')
+        
+        console.log(figureList)
+        figureList.forEach( figure=>{
+            figure.addEventListener('click',()=>{
+                console.log(figure.parentElement.parentElement.firstElementChild)
+                let divElement = document.createElement("div").setAttribute("className","vues")
+                divElement.innerHTML = `
+                    ${figure.parentElement.parentElement.firstElementChild}
+                `
+                chooseList.firstElementChild.appendChild(divElement)
+            })
+        })
 
 
     })
@@ -48,30 +60,30 @@ const CreateClothes = () => {
                 <div className="chooses">
                    <div className="choose-container">
                         <div className="images">
-                            <div className="vues">
-                            <img src="./img/models/boubou2.jpg" alt="" />
+                            {/*<div className="vues">
+                                <img src="./img/models/boubou2.jpg" alt="" />
                             </div>
                             <div className="vues">
-                            <img src="./img/models/boubou2.jpg" alt="" />
-                            </div>
+                                <img src="./img/models/boubou2.jpg" alt="" />
+                            </div>*/}
                         </div>
                         <div className="game-color">
-                            <h3>Teintes et  couleur</h3>
+                            {/*<h3>Teintes et  couleur</h3>
                             <div className="color">
                                 <div></div>
                                 <div></div>
                                 <div></div>
-                            </div>    
+                            </div> */}   
                         </div>
                         <div className="choose-description">
-                            <h3>Détails de la commande:</h3>
+                            {/*<h3>Détails de la commande:</h3>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                                 Laudantium consequuntur aut nihil soluta illum dignissimos rem. 
                                 Corrupti expedita, fugit aperiam repudiandae eligendi maiores 
                                 rem necessitatibus. Lorem, ipsum dolor sit amet consectetur 
                                 adipisicing elit. Molestias, rem!
-                            </p>
+                            </p>*/}
                         </div>
                    </div>
                    <div className="send">
@@ -82,7 +94,7 @@ const CreateClothes = () => {
                 <ChooseModel/>
                 <div className="popUpSelect unselect">
                     <div className="_cancel">
-                        <img src="./img/icons/_cancel.ico" alt="cancel" />
+                        <img src="./img/icons/close.svg" alt="cancel" />
                     </div>
                     <h4 className="select-genre">Genre: </h4>
                     <div className="genre">
@@ -167,19 +179,3 @@ const CreateClothes = () => {
 export default CreateClothes;
 
 
-function chooseImage(){
-
-    let listImages = document.querySelectorAll(".vetements figure")
-    let chooseContainerImages = document.querySelector(".choose-container .images")
-
-
-    console.log(chooseContainerImages)
-
-    listImages.forEach(image =>{
-        image.lastElementChild.addEventListener("click",()=>{
-            console.log(image)
-        })
-    })
-
-
-}

@@ -25,15 +25,33 @@ body{
     grid-template-columns: 20em 60em;
     height: 95vh;
     overflow: hidden;
+    padding-bottom: 1em;
 }
 
 /*=========================================================*/
 
 .chooses{
-    border-right: 2px solid rgb(255, 207, 135);
-    padding: 3em 0.5em 0 1.5em;
+    margin-top: 3em;
+    /*border-right: 2px solid rgb(255, 207, 135);
+    */padding: 3em 0.5em 0 1.5em;
     overflow-x: auto;
 }
+
+
+
+/*.chooses::before{
+    content: '';
+    width: 25em;
+    height: 2px;
+    background-color: rgb(255, 207, 135);
+    position: absolute;
+    border-radius: 1em;
+    transform:rotate(90deg);
+    left:7.5em;
+    top: 20em;
+
+}*/
+
 /*
 .chooses *{
     display: none;
@@ -210,14 +228,14 @@ body{
 
 .popUpSelect ._cancel{
     position: absolute;
-    right: 0.1em;
-    top: -0.05em;
+    left: 1.25em;
+    top: -1.25em;
     
 }
 
 .popUpSelect ._cancel img{
-    width: 2.5em;
-    height: 2.5em;
+    width: 3.5em;
+    height: 3.5em;
 }
 
 /*--------------------------------------------------*/
