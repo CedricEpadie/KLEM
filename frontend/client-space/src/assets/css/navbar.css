@@ -66,7 +66,7 @@
 /*######## Ici cette classe sera appelée dans le page de création de vetement pour modifier la navbar #######*/
 .navbar nav.createClothe{
     background-color: rgb(255, 202, 123);
-    border-radius: 2em;
+    border-radius: 1em;
 }
 
 .navbar nav .logo{

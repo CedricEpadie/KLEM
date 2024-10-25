@@ -16,11 +16,13 @@ const ChooseModel = () => {
             </header>
             <section className='choose'>
                     <div className="vues">
+                        {/*<img src="./img/models/boubou2.jpg" alt="models" className='choix'/>*/}
                         <button>
                             <img src="./img/icons/image.svg" alt="image" className='upload'/>
                         </button>
                     </div>
                     <div className="vues">
+                        {/*<img src="./img/models/boubou2.jpg" alt="models" className='choix'/>*/}
                         <button>
                             <img src="./img/icons/image.svg" alt="image" className='upload'/>
                         </button>

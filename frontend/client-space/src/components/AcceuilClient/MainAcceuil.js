@@ -10,7 +10,7 @@ const MainAcceuil = () => {
         <div className="main-accueil">
             
             <CommandeRecente/>
-            <PresentationModels/>
+            {/*<PresentationModels/>*/}
             
         </div>
     );

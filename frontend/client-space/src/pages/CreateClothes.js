@@ -6,7 +6,7 @@ import ChooseModel from '../components/createClothes/ChooseModel';
 import ChooseCouleur from '../components/createClothes/ChooseCouleur';
 
 const CreateClothes = () => {
-    const [vetementList,setVetementList] = useState('')
+    const [imageClik, setImageClick] = useState("")
 
     useEffect(()=>{
         let navbar = document.querySelector(".navbar nav")
@@ -34,17 +34,23 @@ const CreateClothes = () => {
 
         /* ------------------------------------------------------------- */
         let chooseList = document.querySelector('.choose-container')
-        let figureList = document.querySelectorAll('.vetements figure figcaption img')
+        let figureList = document.querySelectorAll('.vetements figure figcaption img:last-child')
         
         console.log(figureList)
         figureList.forEach( figure=>{
             figure.addEventListener('click',()=>{
-                console.log(figure.parentElement.parentElement.firstElementChild)
-                let divElement = document.createElement("div").setAttribute("className","vues")
-                divElement.innerHTML = `
-                    ${figure.parentElement.parentElement.firstElementChild}
-                `
-                chooseList.firstElementChild.appendChild(divElement)
+
+                chooseList.firstElementChild.innerHTML = "" 
+                let img = document.createElement("img")
+                let divElement = document.createElement("div")
+                divElement.setAttribute("class","vues")
+
+                img.src = figure.parentElement.previousElementSibling
+                divElement.appendChild(img)
+                
+                console.log(divElement)
+                console.log(figure.parentElement.previousElementSibling.src)
+               chooseList.firstElementChild.appendChild(divElement)
             })
         })
 
