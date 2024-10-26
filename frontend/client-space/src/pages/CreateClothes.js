@@ -37,7 +37,15 @@ const CreateClothes = () => {
             popUpSelect.classList.add("unselect")
         })
 
-        
+        let buttonNext1 = document.querySelector("#button-next")
+        let buttonList = document.querySelector(".bouttons")
+
+        buttonNext1.addEventListener("click",()=>{
+            setTimeout(() => {
+                setChoose(<ChooseCouleur/>)
+                buttonList.style.display = 'none'
+            }, 1500);
+        })
 
     })
   
@@ -63,7 +71,7 @@ const CreateClothes = () => {
                                 <div></div>
                                 <div></div>
                                 <div></div>
-                            </div> */}   
+                            </div>*/}   
                         </div>
                         <div className="choose-description">
                             {/*<h3>Détails de la commande:</h3>
@@ -80,7 +88,12 @@ const CreateClothes = () => {
                         <button>Commander</button>
                    </div>
                 </div>
-                {choose}
+                <ChooseCouleur/>
+                {/*choose*/}
+                <div className="bouttons">
+                    <button className='select'>Choisir son model</button>
+                    <button className="next unclickable" id='button-next' >Étape suivante</button>
+                </div>
                 <div className="popUpSelect unselect">
                     <div className="_cancel">
                         <img src="./img/icons/close.svg" alt="cancel" />

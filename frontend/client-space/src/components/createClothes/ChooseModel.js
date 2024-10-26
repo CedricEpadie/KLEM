@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect } from 'react';
 import '../../assets/css/chooseModel.css'
 
 
@@ -8,7 +8,6 @@ const ChooseModel = () => {
         
         let uploadImage = document.querySelectorAll('.choose img')
         let popUpSelect = document.querySelector(".popUpSelect")
-
 
         /* ---------------------------------------------------------------------------------------- */
             /* Choix de l'image et son insertion dans la zone de presentation des models */
@@ -48,7 +47,6 @@ const ChooseModel = () => {
             vue1.setAttribute("class","vues")
             let vue2 = document.createElement("div")
             vue2.setAttribute("class","vues")
-            let i = 0
             buttonNext1.addEventListener('click',(event)=>{
                 event.preventDefault()
                 vue1.innerHTML = imageSelected[0].innerHTML
@@ -70,10 +68,7 @@ const ChooseModel = () => {
                     while (chooseList.firstElementChild.childNodes.length !== 2) {
                         chooseList.firstElementChild.removeChild(chooseList.firstElementChild.lastElementChild)
                     }
-                    /*setTimeout(() => {
-                        setChoose(<ChooseCouleur/>)
-                    }, 2000);*/
-                }, 1500);
+                }, 1000);
                 
             })
 
@@ -103,8 +98,7 @@ const ChooseModel = () => {
                         </button>
                     </div>
             </section>
-            <button className='select'>Choisir son model</button>
-            <button className="next unclickable" id='button-next' >Étape suivante</button>
+            
         </div>
     );
 };

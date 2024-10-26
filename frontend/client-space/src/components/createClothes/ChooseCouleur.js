@@ -1,8 +1,52 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../assets/css/chooseCouleur.css'
 
 
 const ChooseCouleur = () => {
+
+    useEffect(()=>{
+
+        let finishButton = document.querySelector(".terminer")
+        let gameCouleurs = document.querySelectorAll("input[type='color']")
+        let description = document.querySelector('#description')
+        let chooseList = document.querySelector('.choose-container')
+
+        finishButton.addEventListener('click',()=>{
+            chooseList.firstElementChild.nextElementSibling.innerHTML = `
+                            <h3>Teintes et couleur</h3>
+                            <div class = "color">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        `
+            chooseList.lastElementChild.innerHTML = `
+                                <h3>Détails de la commande:</h3>
+                            <p>
+                                ${description.value}
+                            </p>
+                        `
+            
+            setTimeout(() => {
+                let couleurs = document.querySelectorAll('.game-color .color div')
+                couleurs[0].style.backgroundColor = gameCouleurs[0].value
+                couleurs[1].style.backgroundColor = gameCouleurs[1].value
+                couleurs[2].style.backgroundColor = gameCouleurs[2].value
+            }, 500);
+
+            setTimeout(() => {
+                gameCouleurs[0].value = "#dcdcdc"
+                gameCouleurs[1].value = "#dcdcdc"
+                gameCouleurs[2].value = "#dcdcdc"
+                description.value = ""
+            }, 1000);
+           
+        })
+        
+
+    })
+
+
     return (
         <div className='chooseCouleur'>
             <h1>Choix des couleurs
