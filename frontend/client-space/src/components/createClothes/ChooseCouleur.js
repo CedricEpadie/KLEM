@@ -5,13 +5,16 @@ import '../../assets/css/chooseCouleur.css'
 const ChooseCouleur = () => {
 
     useEffect(()=>{
+        /* Button de commande */
+        let commandeButton = document.querySelector(".send button")
+        let selectSpace = document.querySelector(".chooses")
 
-        let finishButton = document.querySelector(".terminer")
+        let validateButton = document.querySelector(".terminer")
         let gameCouleurs = document.querySelectorAll("input[type='color']")
         let description = document.querySelector('#description')
         let chooseList = document.querySelector('.choose-container')
 
-        finishButton.addEventListener('click',()=>{
+        validateButton.addEventListener('click',()=>{
             chooseList.firstElementChild.nextElementSibling.innerHTML = `
                             <h3>Teintes et couleur</h3>
                             <div class = "color">
@@ -40,7 +43,12 @@ const ChooseCouleur = () => {
                 gameCouleurs[2].value = "#dcdcdc"
                 description.value = ""
             }, 1000);
-           
+            
+            setTimeout(() => {
+                commandeButton.classList.remove("wait")
+                selectSpace.scrollTop = -100
+            }, 1250);            
+
         })
         
 
@@ -62,10 +70,10 @@ const ChooseCouleur = () => {
                     </div>  
                 </div>
                 <div>
-                    <textarea name="description" id="description" cols="60" rows="10" placeholder='Description' maxLength={500}></textarea>
+                    <textarea name="description" id="description" cols="60" rows="10" placeholder='Description de la commande' maxLength={1000}></textarea>
                 </div>
             </div>
-            <button className='terminer'>Terminer</button>
+            <button className='terminer'>Valider</button>
         </div>
     );
 };

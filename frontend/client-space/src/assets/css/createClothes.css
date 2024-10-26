@@ -119,6 +119,7 @@ body{
 .chooses .choose-description p{
     color:darkslategrey;
     font-family: 'Courier New', Courier, monospace;
+    word-wrap:break-word;
 }
 
 .chooses .game-color .color,
@@ -353,3 +354,12 @@ body{
     color: #fff;
     opacity: 0.2;
 }
+
+
+/* Button de validation de la commande */
+
+.wait{
+    visibility: hidden;
+}
+
+

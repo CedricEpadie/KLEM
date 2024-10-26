@@ -85,11 +85,10 @@ const CreateClothes = () => {
                         </div>
                    </div>
                    <div className="send">
-                        <button>Commander</button>
+                        <button className='wait'>Commander</button>
                    </div>
                 </div>
-                <ChooseCouleur/>
-                {/*choose*/}
+                {choose}
                 <div className="bouttons">
                     <button className='select'>Choisir son model</button>
                     <button className="next unclickable" id='button-next' >Étape suivante</button>
