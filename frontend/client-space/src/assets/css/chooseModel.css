@@ -58,7 +58,7 @@
 .choose .vues .choix{
     width: 100%;
     height: 100%;
-    z-index: 25;
+    z-index: 10;
 }
 
 .choose .vues button{
@@ -72,7 +72,7 @@
 
 }
 
-.next{
+.next,.select{
     font-family: 'Poppins';
     width: 12em;
     height: 3.5em;
@@ -81,6 +81,7 @@
     border: 1px solid rgb(255, 202, 123);
     font-weight: 700;
     transition: letter-spacing 1s;
+    margin-left: 1em;
 
 }
 
@@ -89,4 +90,18 @@
     letter-spacing: 1.5px;
     border: 0;
     outline: 0;    
+}
+
+.select:hover{
+    background-color: blanchedalmond;
+    border: 0;
+    outline: 0;  
+}
+
+/*Ici nous allons gerer le style du bouton next avec que le model de vetement ne soit choisit*/
+.unclickable{
+    pointer-events: none;
+    background-color: rgb(110, 110, 110);
+    color: #fff;
+    opacity: 0.2;
 }

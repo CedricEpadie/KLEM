@@ -6,57 +6,41 @@ import ChooseModel from '../components/createClothes/ChooseModel';
 import ChooseCouleur from '../components/createClothes/ChooseCouleur';
 
 const CreateClothes = () => {
-    const [imageClik, setImageClick] = useState("")
+    const [choose, setChoose] = useState(<ChooseModel/>)
 
     useEffect(()=>{
         let navbar = document.querySelector(".navbar nav")
         navbar.classList.add("createClothe")
         /* --------------------------------------------------------------- */
-        let profilBtn = document.querySelector('.notify-account button')
+        let profilBtn = document.querySelector('.notify-account img')
         let profilPopUp = document.querySelector('.popUpProfil')
+
         profilBtn.addEventListener('click',()=>{
             profilPopUp.classList.remove('leaveStyle')
         })
-        /* -------------------------------------------------------------- */
-
-        let uplodImage = document.querySelectorAll('.upload')
+        /* --------------------------------------------------------------------------- */
+            /* Ouverture et fermeture de la PopUp de selection du vêtement */
+        let uploadImage = document.querySelectorAll('.choose img')
         let popUpSelect = document.querySelector(".popUpSelect")
         let popUpSelectCloseButton = document.querySelector(".popUpSelect ._cancel img")
+        let selectModelButton  = document.querySelector('.select')
 
-        uplodImage.forEach(button => {
+        uploadImage.forEach(button => {
             button.addEventListener("click",()=>{
                 popUpSelect.classList.remove("unselect")
             })
+        })
+        selectModelButton.addEventListener("click",()=>{
+            popUpSelect.classList.remove("unselect")
         })
         popUpSelectCloseButton.addEventListener("click",()=>{
             popUpSelect.classList.add("unselect")
         })
 
-        /* ------------------------------------------------------------- */
-        let chooseList = document.querySelector('.choose-container')
-        let figureList = document.querySelectorAll('.vetements figure figcaption img:last-child')
         
-        console.log(figureList)
-        figureList.forEach( figure=>{
-            figure.addEventListener('click',()=>{
-
-                chooseList.firstElementChild.innerHTML = "" 
-                let img = document.createElement("img")
-                let divElement = document.createElement("div")
-                divElement.setAttribute("class","vues")
-
-                img.src = figure.parentElement.previousElementSibling
-                divElement.appendChild(img)
-                
-                console.log(divElement)
-                console.log(figure.parentElement.previousElementSibling.src)
-               chooseList.firstElementChild.appendChild(divElement)
-            })
-        })
-
 
     })
-
+  
 
     return (
         <div className='createClothes'>
@@ -96,8 +80,7 @@ const CreateClothes = () => {
                         <button>Commander</button>
                    </div>
                 </div>
-                {/*< ChooseCouleur/>*/}
-                <ChooseModel/>
+                {choose}
                 <div className="popUpSelect unselect">
                     <div className="_cancel">
                         <img src="./img/icons/close.svg" alt="cancel" />
@@ -166,16 +149,14 @@ const CreateClothes = () => {
                             </figcaption>
                         </figure>
                         <figure>
-                            <img src="./img/models/boubou.jpg" alt="vetement" className='model'/>
+                            <img src="./img/models/boubou2.jpg" alt="vetement" className='model'/>
                             <figcaption>
                                 <img src="./img/icons/upload.svg" alt="upload" />                            
                             </figcaption>
                         </figure>
                         
                     </div>
-                    <div className='button'>
-                        <button className='validate'>Valider</button>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -183,5 +164,3 @@ const CreateClothes = () => {
 };
 
 export default CreateClothes;
-
-

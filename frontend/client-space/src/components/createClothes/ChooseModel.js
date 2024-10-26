@@ -1,8 +1,83 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import '../../assets/css/chooseModel.css'
 
 
 const ChooseModel = () => {
+
+    useEffect(()=>{
+        
+        let uploadImage = document.querySelectorAll('.choose img')
+        let popUpSelect = document.querySelector(".popUpSelect")
+
+
+        /* ---------------------------------------------------------------------------------------- */
+            /* Choix de l'image et son insertion dans la zone de presentation des models */
+            let buttonNext1 = document.querySelector("#button-next")//Bouton pour aller à l'étape suivante
+        
+            let figureList = document.querySelectorAll('.vetements figure figcaption img:last-child')
+            let imageSelected = document.querySelectorAll(".choose .vues")
+            //console.log(imageSelected[0])
+            //console.log(imageSelected[0].innerHTML)
+            figureList.forEach( figure=>{
+                figure.addEventListener('click',()=>{
+    
+                    imageSelected[0].innerHTML = "" 
+                    imageSelected[1].innerHTML = ""
+                    let img = document.createElement("img")
+                    let divElement = document.createElement("div")
+    
+                    img.setAttribute("class","choix")
+                    img.src = `./img`+figure.parentElement.previousElementSibling.src.split("img")[1]
+                    divElement.appendChild(img)
+                    
+                    imageSelected.innerHTML = ""
+                    setTimeout(() => {
+                        uploadImage = document.querySelectorAll('.choose img')
+                        buttonNext1.classList.remove("unclickable")
+                    }, 2000);   
+                    imageSelected[0].innerHTML = divElement.innerHTML
+                    imageSelected[1].innerHTML = divElement.innerHTML
+                    popUpSelect.classList.add("unselect")
+    
+                })
+            })
+            /* --------------------------------------------------------------------------------------- */
+                /* Gestion du passage à l'étape suivante */
+            let chooseList = document.querySelector('.choose-container')
+            let vue1 = document.createElement("div")
+            vue1.setAttribute("class","vues")
+            let vue2 = document.createElement("div")
+            vue2.setAttribute("class","vues")
+            let i = 0
+            buttonNext1.addEventListener('click',(event)=>{
+                event.preventDefault()
+                vue1.innerHTML = imageSelected[0].innerHTML
+                vue2.innerHTML = imageSelected[1].innerHTML
+    
+                chooseList.firstElementChild.appendChild(vue1)
+                chooseList.firstElementChild.appendChild(vue2)
+    
+                setTimeout(() => {
+                    imageSelected[0].innerHTML = `<button>
+                                <img src="./img/icons/image.svg" alt="image" className='upload'/>
+                            </button>`
+                    imageSelected[1].innerHTML = `<button>
+                                <img src="./img/icons/image.svg" alt="image" className='upload'/>
+                            </button>`
+                }, 1500);
+                
+                setTimeout(() => {
+                    while (chooseList.firstElementChild.childNodes.length !== 2) {
+                        chooseList.firstElementChild.removeChild(chooseList.firstElementChild.lastElementChild)
+                    }
+                    /*setTimeout(() => {
+                        setChoose(<ChooseCouleur/>)
+                    }, 2000);*/
+                }, 1500);
+                
+            })
+
+    })
 
 
     return (
@@ -28,7 +103,8 @@ const ChooseModel = () => {
                         </button>
                     </div>
             </section>
-            <button className="next" id='button-next'>Étape suivante</button>
+            <button className='select'>Choisir son model</button>
+            <button className="next unclickable" id='button-next' >Étape suivante</button>
         </div>
     );
 };
