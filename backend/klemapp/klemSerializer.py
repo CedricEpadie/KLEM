@@ -14,7 +14,6 @@ class PaysSerializer(serializers.ModelSerializer):
         model = models.Pays
         fields = '__all__'
 
-
 # =========( Ville )===========
 class VilleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -45,14 +44,12 @@ class VetementSerializer(serializers.ModelSerializer):
         model = models.Vetement
         fields = '__all__'
         
-
 # =========( Mode_Paiement )===========
 class Mode_PaiementSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Mode_Paiement
         fields = '__all__'
         
-
 # =========( Commande )===========
 class CommandeSerializer(serializers.ModelSerializer):
     class Meta:
