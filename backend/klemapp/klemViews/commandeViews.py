@@ -1,8 +1,8 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from cocoaApp.models import Commande
-from cocoaApp.klemSerializer import CommandeSerializer
+from klemapp.models import Commande
+from klemapp.klemSerializer import CommandeSerializer
 
 class CommandeCreateView(APIView):
     def post(self, request):

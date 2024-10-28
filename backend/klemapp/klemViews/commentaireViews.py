@@ -1,8 +1,8 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from cocoaApp.models import Commentaire
-from cocoaApp.klemSerializer import CommentaireSerializer
+from klemapp.models import Commentaire
+from klemapp.klemSerializer import CommentaireSerializer
 
 class CommentaireCreateView(APIView):
     def post(self, request):

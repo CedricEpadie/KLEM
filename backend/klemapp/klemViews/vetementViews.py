@@ -1,8 +1,8 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from cocoaApp.models import Vetement
-from cocoaApp.klemSerializer import VetementSerializer
+from klemapp.models import Vetement
+from klemapp.klemSerializer import VetementSerializer
 
 class VetementCreateView(APIView):
     def post(self, request):

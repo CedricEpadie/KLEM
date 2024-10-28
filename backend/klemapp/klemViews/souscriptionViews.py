@@ -1,8 +1,8 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from cocoaApp.models import Souscription
-from cocoaApp.klemSerializer import SouscriptionSerializer
+from klemapp.models import Souscription
+from klemapp.klemSerializer import SouscriptionSerializer
 
 class SouscriptionCreateView(APIView):
     def post(self, request):

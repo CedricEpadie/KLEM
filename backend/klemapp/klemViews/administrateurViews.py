@@ -1,8 +1,8 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from cocoaApp.models import Administrateur
-from cocoaApp.klemSerializer import AdministrateurSerializer
+from klemapp.models import Administrateur
+from klemapp.klemSerializer import AdministrateurSerializer
 
 class AdministrateurCreateView(APIView):
     def post(self, request):
