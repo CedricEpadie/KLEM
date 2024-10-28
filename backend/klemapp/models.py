@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import AbstractUser
 
 # ==========| Entite pays |==========
 class Pays(models.Model):
@@ -36,44 +36,38 @@ class Ville(models.Model):
     def __str__(self):
         return self.nom
     
-    
 # ==========| Class utilisateur qui ne sera pas sauvegarder en base de donnee |==========
-class Utilisateur(models.Model):
+class CustomUser(AbstractUser):
     '''Model definition for Utilisateur.'''
     
-    nom = models.CharField(max_length=200)
-    prenom = models.CharField(max_length=200)
-    email = models.EmailField()
     address = models.CharField(max_length=300)
     telephone = models.IntegerField()
     ville = models.ForeignKey(Ville, on_delete=models.SET_NULL, null=True, related_name='%(class)s_list')
-    mot_de_pass = models.CharField(max_length=200)
+    is_couturier = models.BooleanField(verbose_name=("Status couturier"), default=False)
     
-    class Meta:
-        abstract = True  # Indique que cette classe est abstraite
     def __str__(self):
         return self.nom
-        
 
 # ==========| Entite client |==========
-class Client(Utilisateur):
+class Client(models.Model):
     '''Model definition for Client.'''
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
     class Meta:
         '''Meta definition for Client.'''
 
         verbose_name = 'Client'
         verbose_name_plural = 'Clients'
-        ordering = ['-nom']
 
     def __str__(self):
         return self.nom
     
 # ==========| Entite couturier |==========
-class Couturier(Utilisateur):
+class Couturier(models.Model):
     '''Model definition for Couturier.'''
 
-    description = models.TextField( null=True)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    description = models.TextField(null=True)
     specialite = models.CharField(max_length=300)
 
     class Meta:
@@ -86,8 +80,10 @@ class Couturier(Utilisateur):
         return self.nom
     
 # ==========| Entite administrateur |==========
-class Administrateur(Utilisateur):
+class Administrateur(models.Model):
     '''Model definition for Administrateur.'''
+    
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     role = models.CharField(max_length=200)
     etat_compte = models.CharField(max_length=200)
 
@@ -96,7 +92,6 @@ class Administrateur(Utilisateur):
 
         verbose_name = 'Administrateur'
         verbose_name_plural = 'Administrateurs'
-        ordering = ['-nom']
 
     def __str__(self):
         return self.nom
@@ -114,7 +109,7 @@ class Vetement(models.Model):
     couturier = models.ForeignKey(Couturier, related_name='couturier', on_delete=models.CASCADE)
     
     class Meta:
-        '''Meta definition for Vetement.'''
+        '''Meta definition for etement.'''
 
         verbose_name = 'Vetement'
         verbose_name_plural = 'Vetements'
