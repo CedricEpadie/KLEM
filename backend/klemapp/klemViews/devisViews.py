@@ -16,7 +16,6 @@ class DevisListView(generics.ListAPIView):
     queryset = Devis.objects.all()
     serializer_class = DevisSerializer
     
-
 class DevisUpdateView(generics.UpdateAPIView):
     queryset = Devis.objects.all()
     serializer_class = DevisSerializer

@@ -16,7 +16,6 @@ class VetementListView(generics.ListAPIView):
     queryset = Vetement.objects.all()
     serializer_class = VetementSerializer
     
-
 class VetementUpdateView(generics.UpdateAPIView):
     queryset = Vetement.objects.all()
     serializer_class = VetementSerializer

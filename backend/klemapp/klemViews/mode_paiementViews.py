@@ -16,7 +16,6 @@ class Mode_PaiementListView(generics.ListAPIView):
     queryset = Mode_Paiement.objects.all()
     serializer_class = Mode_PaiementSerializer
     
-
 class Mode_PaiementUpdateView(generics.UpdateAPIView):
     queryset = Mode_Paiement.objects.all()
     serializer_class = Mode_PaiementSerializer

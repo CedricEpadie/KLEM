@@ -16,7 +16,6 @@ class CommandeListView(generics.ListAPIView):
     queryset = Commande.objects.all()
     serializer_class = CommandeSerializer
     
-
 class CommandeUpdateView(generics.UpdateAPIView):
     queryset = Commande.objects.all()
     serializer_class = CommandeSerializer

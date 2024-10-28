@@ -16,7 +16,6 @@ class VilleListView(generics.ListAPIView):
     queryset = Ville.objects.all()
     serializer_class = VilleSerializer
     
-
 class VilleUpdateView(generics.UpdateAPIView):
     queryset = Ville.objects.all()
     serializer_class = VilleSerializer

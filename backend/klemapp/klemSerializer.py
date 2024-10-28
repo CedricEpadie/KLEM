@@ -1,108 +1,108 @@
 from rest_framework import serializers
-from .models import Commentaire, Pays, Ville, Client, Couturier, Administrateur, Vetement, Mode_Paiement, Commande, Vetement_commande, Abonnement, Souscription, Devis, Tag, Categorie_article, Article, Article_tag
+from . import models
 
 
 # =========( Commentaire )===========
 class CommentaireSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Commentaire
+        model = models.Commentaire
         fields = '__all__'
         
 # =========( Pays )===========
 class PaysSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Pays
+        model = models.Pays
         fields = '__all__'
 
 
 # =========( Ville )===========
 class VilleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Ville
+        model = models.Ville
         fields = '__all__'
         
 # =========( Client )===========
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Client
+        model = models.Client
         fields = '__all__'
         
 # =========( Couturier )===========
 class CouturierSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Couturier
+        model = models.Couturier
         fields = '__all__'
         
 # =========( Administrateur )===========
 class AdministrateurSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Administrateur
+        model = models.Administrateur
         fields = '__all__'
         
 # =========( Vetement )===========
 class VetementSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Vetement
+        model = models.Vetement
         fields = '__all__'
         
 
 # =========( Mode_Paiement )===========
 class Mode_PaiementSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Mode_Paiement
+        model = models.Mode_Paiement
         fields = '__all__'
         
 
 # =========( Commande )===========
 class CommandeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Commande
+        model = models.Commande
         fields = '__all__'
         
 # =========( Vetement_commande )===========
 class Vetement_commandeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Vetement_commande
+        model = models.Vetement_commande
         fields = '__all__'
         
 # =========( Abonnement )===========
 class AbonnementSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Abonnement
+        model = models.Abonnement
         fields = '__all__'
         
 # =========( Souscription )===========
 class SouscriptionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Souscription
+        model = models.Souscription
         fields = '__all__'
         
 # =========( Devis )===========
 class DevisSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Devis
+        model = models.Devis
         fields = '__all__'
         
 # =========( Tag )===========
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Tag
+        model = models.Tag
         fields = '__all__'
         
 # =========( Categorie_article )===========
 class Categorie_articleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Categorie_article
+        model = models.Categorie_article
         fields = '__all__'
         
 # =========( Article )===========
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Article
+        model = models.Article
         fields = '__all__'
         
 # =========( Article_tag )===========
 class Article_tagSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Article_tag
+        model = models.Article_tag
         fields = '__all__'

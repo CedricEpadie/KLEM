@@ -16,7 +16,6 @@ class PaysListView(generics.ListAPIView):
     queryset = Pays.objects.all()
     serializer_class = PaysSerializer
     
-
 class PaysUpdateView(generics.UpdateAPIView):
     queryset = Pays.objects.all()
     serializer_class = PaysSerializer

@@ -15,7 +15,6 @@ class AbonnementCreateView(APIView):
 class AbonnementListView(generics.ListAPIView):
     queryset = Abonnement.objects.all()
     serializer_class = AbonnementSerializer
-    
 
 class AbonnementUpdateView(generics.UpdateAPIView):
     queryset = Abonnement.objects.all()
