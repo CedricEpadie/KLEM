@@ -16,7 +16,6 @@ class CouturierListView(generics.ListAPIView):
     queryset = Couturier.objects.all()
     serializer_class = CouturierSerializer
     
-
 class CouturierUpdateView(generics.UpdateAPIView):
     queryset = Couturier.objects.all()
     serializer_class = CouturierSerializer

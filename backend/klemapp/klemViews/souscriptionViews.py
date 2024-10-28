@@ -16,7 +16,6 @@ class SouscriptionListView(generics.ListAPIView):
     queryset = Souscription.objects.all()
     serializer_class = SouscriptionSerializer
     
-
 class SouscriptionUpdateView(generics.UpdateAPIView):
     queryset = Souscription.objects.all()
     serializer_class = SouscriptionSerializer

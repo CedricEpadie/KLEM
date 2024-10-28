@@ -16,7 +16,6 @@ class ArticleListView(generics.ListAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     
-
 class ArticleUpdateView(generics.UpdateAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer

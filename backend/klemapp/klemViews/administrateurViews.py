@@ -16,7 +16,6 @@ class AdministrateurListView(generics.ListAPIView):
     queryset = Administrateur.objects.all()
     serializer_class = AdministrateurSerializer
     
-
 class AdministrateurUpdateView(generics.UpdateAPIView):
     queryset = Administrateur.objects.all()
     serializer_class = AdministrateurSerializer

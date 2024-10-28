@@ -16,7 +16,6 @@ class TagListView(generics.ListAPIView):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
     
-
 class TagUpdateView(generics.UpdateAPIView):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer

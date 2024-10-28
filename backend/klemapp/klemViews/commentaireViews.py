@@ -16,7 +16,6 @@ class CommentaireListView(generics.ListAPIView):
     queryset = Commentaire.objects.all()
     serializer_class = CommentaireSerializer
     
-
 class CommentaireUpdateView(generics.UpdateAPIView):
     queryset = Commentaire.objects.all()
     serializer_class = CommentaireSerializer
