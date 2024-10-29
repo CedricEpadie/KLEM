@@ -1,47 +1,52 @@
-# from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
+from .models import CustomUser, Client, Couturier
+from .klemSerializer import CustomUserSerializer
+from django.contrib.auth import login, logout
 
-# # views.py
-# from django.shortcuts import render, redirect
-# from django.contrib.auth import login, authenticate
-# # from .forms import UserRegistrationForm, CustomLoginForm
-# from rest_framework.views import APIView
-# from rest_framework.response import Response
-# # from .klemSerializer import UtilisateurSerializer
+class InscriptionAPI(APIView):
+    def post(self, request):
+        serializer = CustomUserSerializer(data=request.data)
+        if serializer.is_valid():
+            if CustomUser.objects.filter(username=request.data.get('username')).exists():
+                return Response(
+                    {'error': 'username déjà utilisé'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+                
+            if CustomUser.objects.filter(email=request.data.get('email')).exists():
+                return Response(
+                    {'error': 'email déjà utilisé'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+                
+            user = serializer.save()
+            if user.is_couturier:
+                Couturier.objects.create(user=user)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            else:
+                Client.objects.create(user=user)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class ConnexionAPI(APIView):
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        user = CustomUser.objects.get(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            if user.is_couturier:
+                return Response({'redirect': 'couturier'}, status=status.HTTP_200_OK)
+            else:
+                return Response({'redirect': 'client'}, status=status.HTTP_200_OK)
+        return Response({'error': 'username or password was wrong!'}, status=status.HTTP_401_UNAUTHORIZED)
 
-# # def register(request):
-# #     if request.method == 'POST':
-# #         form = UserRegistrationForm(request.POST)
-# #         if form.is_valid():
-# #             form.save()
-# #             username = form.cleaned_data.get('username')
-# #             password = form.cleaned_data.get('password')
-# #             email = form.cleaned_data.get('email')
-# #             user = authenticate(username=username, password=password, email=email)
-# #             login(request, user)
-# #             return redirect('klemapp/client')  # Redirigez vers votre page d'accueil
-# #     else:
-# #         form = UserRegistrationForm()
-# #     return render(request, 'klemapp/register.html', {'form': form})
+class DeconnexionAPI(APIView):
+    permission_classes = [IsAuthenticated]
 
-# # def login_view(request):
-# #     if request.method == 'POST':
-# #         form = CustomLoginForm(request, data=request.POST)
-# #         if form.is_valid():
-# #             login(request, form.get_user())
-# #             return redirect('klemapp/client')  # Redirigez vers votre page d'accueil
-# #     else:
-# #         form = CustomLoginForm()
-# #     return render(request, 'klemapp/login.html', {'form': form})
-
-
-# # class InscriptionView(APIView):
-# #     def post(self, request):
-# #         serializer = UtilisateurSerializer(data=request.data)
-# #         if serializer.is_valid():
-# #             serializer.save()
-# #             return Response({'message': 'Inscription réussie'})
-# #         return Response(serializer.errors, status=400)
-    
-# # def TestUrl(request):
-# #     return render(request, 'klemapp/test.html')
+    def post(self, request):
+        logout(request)
+        return Response({'redirect': 'connexion'}, status=status.HTTP_200_OK)
