@@ -19,7 +19,13 @@ class VilleSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Ville
         fields = '__all__'
-        
+
+# ========( CustomUser )========
+class CustomUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.CustomUser
+        fields = '__all__'
+                
 # =========( Client )===========
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:

@@ -245,3 +245,13 @@ article_tag_urls = [
     path('klem/article_tag/<int:id>/delete/', Article_tagDeleteView.as_view(), name='article_tag-delete'),
 ]
 urlpatterns += article_tag_urls + article_tagRouteur.urls
+
+# ========== | Inscription urls|=======================
+from . import views
+inscriptionRouteur = DefaultRouter()
+inscription_urls = [
+    path('klem/inscription/', views.InscriptionAPI.as_view(), name='inscription'),
+    path('klem/connexion/', views.ConnexionAPI.as_view(), name='connexion'),
+    path('klem/deconnexion/', views.DeconnexionAPI.as_view(), name='deconnexion')
+]
+urlpatterns += inscription_urls + inscriptionRouteur.urls
