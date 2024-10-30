@@ -4,6 +4,8 @@ import NavBar from '../components/NavBar';
 import PopUpProfil from '../components/PopUpProfil';
 import ChooseModel from '../components/createClothes/ChooseModel';
 import ChooseCouleur from '../components/createClothes/ChooseCouleur';
+import axios from "axios"
+
 
 const CreateClothes = () => {
     const [choose, setChoose] = useState(<ChooseModel/>)
@@ -47,7 +49,57 @@ const CreateClothes = () => {
             }, 1500);
         })
 
-    })
+        //Requête de récupération des images depuis l'API
+        let xhr = new XMLHttpRequest()
+        let data;
+        let contentClothes = document.querySelector(".vetements")
+        xhr.open('GET', 'http://localhost:3010/api/vetements',true)
+        xhr.onload = function(){
+            data = JSON.parse(xhr.responseText)
+            data.forEach(data=>{
+                let figure = document.createElement("figure")
+                figure.innerHTML = `
+                    <img src="./img/models/${data.image}" alt="vetement" class='model' id=${data.id}/>
+                    <figcaption>
+                        <img src="./img/icons/upload.svg" alt="upload" />                            
+                    </figcaption>
+                `
+                contentClothes.appendChild(figure)
+            })
+            setTimeout(() => {
+                contentClothes = document.querySelector(".vetements")
+                if (contentClothes.childNodes.length > data.length) {
+                    for (let i = 0; i < data.length; i++) {
+                        contentClothes.removeChild(contentClothes.lastElementChild)                   
+                    }
+                }
+            }, 1500);
+        }
+        xhr.send()
+
+        //Gestion de l'affichage de chaque image par catégorie
+        let categories =  document.querySelectorAll(".genre input[type='radio']")
+        categories.forEach(categorie=>{
+            categorie.addEventListener("click",()=>{
+                contentClothes.innerHTML = ''
+                data.forEach(client=>{
+                    if (client.genre === categorie.id) {
+                        let figure = document.createElement("figure")
+                            figure.innerHTML = `
+                                <img src="./img/models/${client.image}" alt="vetement" class='model' id=${client.id}/>
+                                <figcaption>
+                                    <img src="./img/icons/upload.svg" alt="upload" />                            
+                                </figcaption>
+                            `
+                        contentClothes.appendChild(figure)
+                    }
+                })   
+            })
+        })
+        let request = new XMLHttpRequest()
+
+
+    },[])
   
 
     return (
@@ -65,7 +117,7 @@ const CreateClothes = () => {
                                 <img src="./img/models/boubou2.jpg" alt="" />
                             </div>*/}
                         </div>
-                        <div className="game-color">
+                        <div className = "game-color">
                             {/*<h3>Teintes et  couleur</h3>
                             <div className="color">
                                 <div></div>
@@ -73,7 +125,7 @@ const CreateClothes = () => {
                                 <div></div>
                             </div>*/}   
                         </div>
-                        <div className="choose-description">
+                        <div className = "choose-description">
                             {/*<h3>Détails de la commande:</h3>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -101,14 +153,14 @@ const CreateClothes = () => {
                     <div className="genre">
                         <span>
                             <label htmlFor="choix">Homme</label>
-                            <input type="radio" name="choix" id="homme" />
+                            <input type="radio" name="choix" id="masculin" />
                         </span>
                         <span>
                             <label htmlFor="choix">Femme</label>
-                            <input type="radio" name="choix" id="femme" />
+                            <input type="radio" name="choix" id="feminin" />
                         </span>
                     </div>
-                    <h4 className='select-categorie'>Catégorie:</h4>
+                    {/*<h4 className='select-categorie'>Catégorie:</h4>
                     <div className="categories">
                         <div className="cat-hommes cat">
                             <span>
@@ -152,21 +204,8 @@ const CreateClothes = () => {
                             </span>
                            
                         </div>
-                    </div>
-                    <div className="vetements">
-                        <figure>
-                            <img src="./img/models/boubou.jpg" alt="vetement" className='model'/>
-                            <figcaption>
-                                <img src="./img/icons/upload.svg" alt="upload" />                            
-                            </figcaption>
-                        </figure>
-                        <figure>
-                            <img src="./img/models/boubou2.jpg" alt="vetement" className='model'/>
-                            <figcaption>
-                                <img src="./img/icons/upload.svg" alt="upload" />                            
-                            </figcaption>
-                        </figure>
-                        
+                    </div>*/}
+                    <div className="vetements">                        
                     </div>
                     
                 </div>

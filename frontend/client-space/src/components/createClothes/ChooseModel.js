@@ -12,34 +12,36 @@ const ChooseModel = () => {
         /* ---------------------------------------------------------------------------------------- */
             /* Choix de l'image et son insertion dans la zone de presentation des models */
             let buttonNext1 = document.querySelector("#button-next")//Bouton pour aller à l'étape suivante
-        
-            let figureList = document.querySelectorAll('.vetements figure figcaption img:last-child')
+            let figureList = document.querySelectorAll('.vetements figure figcaption img:last-child')// On selectionne toutes les images Upload
             let imageSelected = document.querySelectorAll(".choose .vues")
-            //console.log(imageSelected[0])
-            //console.log(imageSelected[0].innerHTML)
-            figureList.forEach( figure=>{
-                figure.addEventListener('click',()=>{
-    
-                    imageSelected[0].innerHTML = "" 
-                    imageSelected[1].innerHTML = ""
-                    let img = document.createElement("img")
-                    let divElement = document.createElement("div")
-    
-                    img.setAttribute("class","choix")
-                    img.src = `./img`+figure.parentElement.previousElementSibling.src.split("img")[1]
-                    divElement.appendChild(img)
-                    
-                    imageSelected.innerHTML = ""
-                    setTimeout(() => {
-                        uploadImage = document.querySelectorAll('.choose img')
-                        buttonNext1.classList.remove("unclickable")
-                    }, 2000);   
-                    imageSelected[0].innerHTML = divElement.innerHTML
-                    imageSelected[1].innerHTML = divElement.innerHTML
-                    popUpSelect.classList.add("unselect")
-    
+            setInterval(() => { // Ceci vas nous permettre d'initialiser toutes les 500ms la liste des images
+                figureList = document.querySelectorAll('.vetements figure figcaption img:last-child')
+            
+                figureList.forEach( figure=>{
+                    figure.addEventListener('click',()=>{
+        
+                        imageSelected[0].innerHTML = "" 
+                        imageSelected[1].innerHTML = ""
+                        let img = document.createElement("img")
+                        let divElement = document.createElement("div")
+        
+                        img.setAttribute("class","choix")
+                        img.src = `./img`+figure.parentElement.previousElementSibling.src.split("img")[1]
+                        divElement.appendChild(img)
+                        
+                        imageSelected.innerHTML = ""
+                        setTimeout(() => {
+                            uploadImage = document.querySelectorAll('.choose img')
+                            buttonNext1.classList.remove("unclickable")
+                        }, 2000);   
+                        imageSelected[0].innerHTML = divElement.innerHTML
+                        imageSelected[1].innerHTML = divElement.innerHTML
+                        popUpSelect.classList.add("unselect")
+        
+                    })
                 })
-            })
+            }, 500);
+            
             /* --------------------------------------------------------------------------------------- */
                 /* Gestion du passage à l'étape suivante */
             let chooseList = document.querySelector('.choose-container')

@@ -35,19 +35,19 @@ const ChooseCouleur = () => {
                 couleurs[0].style.backgroundColor = gameCouleurs[0].value
                 couleurs[1].style.backgroundColor = gameCouleurs[1].value
                 couleurs[2].style.backgroundColor = gameCouleurs[2].value
-            }, 500);
+            }, 250);
 
             setTimeout(() => {
                 gameCouleurs[0].value = "#dcdcdc"
                 gameCouleurs[1].value = "#dcdcdc"
                 gameCouleurs[2].value = "#dcdcdc"
                 description.value = ""
-            }, 1000);
+            }, 750);
             
             setTimeout(() => {
                 commandeButton.classList.remove("wait")
-                selectSpace.scrollTop = -100
-            }, 1250);            
+                selectSpace.scrollTop = 1000
+            }, 1000);            
 
         })
         
@@ -70,7 +70,13 @@ const ChooseCouleur = () => {
                     </div>  
                 </div>
                 <div>
-                    <textarea name="description" id="description" cols="60" rows="10" placeholder='Description de la commande' maxLength={1000}></textarea>
+                    <textarea 
+                        name="description" 
+                        id="description" 
+                        cols="60" rows="10" 
+                        placeholder='Description de la commande(mensuration, taille, matières du tissu, personnalisations personnelles...)' 
+                        maxLength={1200}>
+                    </textarea>
                 </div>
             </div>
             <button className='terminer'>Valider</button>
