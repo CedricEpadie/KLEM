@@ -1,27 +1,20 @@
-from rest_framework import status, generics
+from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.views import APIView
-from klemapp.models import Client
+from rest_framework import status
+from klemapp.models import Client, CustomUser
 from klemapp.klemSerializer import ClientSerializer
 
-class ClientCreateView(APIView):
-    def post(self, request):
-        serializer = ClientSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class ClientViewSet(viewsets.ModelViewSet):
+    queryset = Client.objects.all()
+    serializer_class = ClientSerializer
     
-class ClientListView(generics.ListAPIView):
-    queryset = Client.objects.all()
-    serializer_class = ClientSerializer
-
-class ClientUpdateView(generics.UpdateAPIView):
-    queryset = Client.objects.all()
-    serializer_class = ClientSerializer
-    lookup_field = 'id'  # Utiliser l'ID du Client pour les opérations
-
-class ClientDeleteView(generics.DestroyAPIView):
-    queryset = Client.objects.all()
-    serializer_class = ClientSerializer
-    lookup_field = 'id'  # Utiliser l'ID du Client pour les opérations
+    def destroy(self, request, *args, **kwargs):
+        client = self.get_object()
+        customuser = CustomUser.objects.get(username = client.user.username)
+        client.delete()
+        customuser.delete()
+        
+        return Response(
+            {'message': 'Client supprimé avec succes'},
+            status=status.HTTP_204_NO_CONTENT
+        )

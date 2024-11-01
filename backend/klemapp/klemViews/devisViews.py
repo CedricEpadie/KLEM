@@ -1,27 +1,7 @@
-from rest_framework import status, generics
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework import viewsets
 from klemapp.models import Devis
 from klemapp.klemSerializer import DevisSerializer
 
-class DevisCreateView(APIView):
-    def post(self, request):
-        serializer = DevisSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-class DevisListView(generics.ListAPIView):
+class DevisViewSet(viewsets.ModelViewSet):
     queryset = Devis.objects.all()
     serializer_class = DevisSerializer
-    
-class DevisUpdateView(generics.UpdateAPIView):
-    queryset = Devis.objects.all()
-    serializer_class = DevisSerializer
-    lookup_field = 'id'  # Utiliser l'ID du Devis pour les opérations
-
-class DevisDeleteView(generics.DestroyAPIView):
-    queryset = Devis.objects.all()
-    serializer_class = DevisSerializer
-    lookup_field = 'id'  # Utiliser l'ID du Devis pour les opérations

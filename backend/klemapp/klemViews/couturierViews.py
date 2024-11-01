@@ -1,27 +1,20 @@
-from rest_framework import status, generics
+from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.views import APIView
-from klemapp.models import Couturier
+from rest_framework import status
+from klemapp.models import Couturier, CustomUser
 from klemapp.klemSerializer import CouturierSerializer
 
-class CouturierCreateView(APIView):
-    def post(self, request):
-        serializer = CouturierSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-class CouturierListView(generics.ListAPIView):
+class CouturierViewSet(viewsets.ModelViewSet):
     queryset = Couturier.objects.all()
     serializer_class = CouturierSerializer
     
-class CouturierUpdateView(generics.UpdateAPIView):
-    queryset = Couturier.objects.all()
-    serializer_class = CouturierSerializer
-    lookup_field = 'id'  # Utiliser l'ID du Couturier pour les opérations
-
-class CouturierDeleteView(generics.DestroyAPIView):
-    queryset = Couturier.objects.all()
-    serializer_class = CouturierSerializer
-    lookup_field = 'id'  # Utiliser l'ID du Couturier pour les opérations
+    def destroy(self, request, *args, **kwargs):
+        couturier = self.get_object()
+        customuser = CustomUser.objects.get(username = couturier.user.username)
+        couturier.delete()
+        customuser.delete()
+        
+        return Response(
+            {'Message': 'Couturier supprilé avec succes'},
+            status=status.HTTP_204_NO_CONTENT
+        )
