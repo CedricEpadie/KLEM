@@ -42,11 +42,12 @@ class CustomUser(AbstractUser):
     
     address = models.CharField(max_length=300)
     telephone = models.IntegerField()
+    pays = models.ForeignKey(Pays, on_delete=models.SET_NULL, null=True)
     ville = models.ForeignKey(Ville, on_delete=models.SET_NULL, null=True, related_name='%(class)s_list')
     is_couturier = models.BooleanField(verbose_name=("Status couturier"), default=False)
     
     def __str__(self):
-        return self.nom
+        return self.get_full_name()
 
 # ==========| Entite client |==========
 class Client(models.Model):
@@ -60,7 +61,7 @@ class Client(models.Model):
         verbose_name_plural = 'Clients'
 
     def __str__(self):
-        return self.nom
+        return 'Client' + ' ' + self.user.get_full_name()
     
 # ==========| Entite couturier |==========
 class Couturier(models.Model):
@@ -77,7 +78,7 @@ class Couturier(models.Model):
         verbose_name_plural = 'Couturiers'
 
     def __str__(self):
-        return self.nom
+        return 'Couturier' + ' ' + self.user.get_full_name()
     
 # ==========| Entite administrateur |==========
 class Administrateur(models.Model):
@@ -94,7 +95,7 @@ class Administrateur(models.Model):
         verbose_name_plural = 'Administrateurs'
 
     def __str__(self):
-        return self.nom
+        return 'Administrateur' + ' ' + self.user.get_full_name()
 
 # ==========| Entite Vetement |==========
 class Vetement(models.Model):

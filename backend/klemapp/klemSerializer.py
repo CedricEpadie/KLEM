@@ -1,6 +1,6 @@
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
 from . import models
-
 
 # =========( Commentaire )===========
 class CommentaireSerializer(serializers.ModelSerializer):
@@ -109,3 +109,47 @@ class Article_tagSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Article_tag
         fields = '__all__'
+        
+# =======( Register )==============
+class RegisterSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(
+        required=True,
+        validators=[UniqueValidator(queryset=models.CustomUser.objects.all())]
+    )
+    password = serializers.CharField(write_only=True)
+    last_name = serializers.CharField(required=True)
+    
+    class Meta:
+        model = models.CustomUser
+        fields = ('first_name', 'last_name', 'username', 'email', 'password', 'pays', 'ville', 'address', 'telephone', 'is_couturier')
+
+    def create(self, validated_data):
+        user = models.CustomUser.objects.create_user(
+            username = validated_data['username'],
+            first_name = validated_data['first_name'],
+            last_name = validated_data['last_name'],
+            email = validated_data['email'],
+            password = validated_data['password'],
+            pays = validated_data.get('pays', None),
+            ville = validated_data.get('ville', None),
+            address = validated_data.get('address', ''),
+            telephone = validated_data.get('telephone', None),
+            is_couturier = validated_data.get('is_couturier', False)
+        )
+        
+        return user
+    
+# =======( Login )========
+class LoginSerializer(serializers.ModelSerializer):
+    username = serializers.CharField()
+    password = serializers.CharField(write_only=True)
+    
+    class Meta:
+        model = models.CustomUser
+        fields = ('username', 'password')
+
+# =======( Logout )======
+class LogoutSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.CustomUser
+        fields = ('id',)
