@@ -4,7 +4,6 @@ import NavBar from '../components/NavBar';
 import PopUpProfil from '../components/PopUpProfil';
 import ChooseModel from '../components/createClothes/ChooseModel';
 import ChooseCouleur from '../components/createClothes/ChooseCouleur';
-import axios from "axios"
 
 
 const CreateClothes = () => {
@@ -66,14 +65,12 @@ const CreateClothes = () => {
                 `
                 contentClothes.appendChild(figure)
             })
-            setTimeout(() => {
-                contentClothes = document.querySelector(".vetements")
-                if (contentClothes.childNodes.length > data.length) {
-                    for (let i = 0; i < data.length; i++) {
-                        contentClothes.removeChild(contentClothes.lastElementChild)                   
-                    }
+            contentClothes = document.querySelector(".vetements")
+            if (contentClothes.childNodes.length > data.length) {
+                for (let i = 0; i < data.length; i++) {
+                    contentClothes.removeChild(contentClothes.lastElementChild)                   
                 }
-            }, 1500);
+            }
         }
         xhr.send()
 
@@ -96,7 +93,6 @@ const CreateClothes = () => {
                 })   
             })
         })
-        let request = new XMLHttpRequest()
 
 
     },[])

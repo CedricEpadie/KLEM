@@ -56,11 +56,11 @@
     flex-direction: column;
     overflow-x:hidden ;
 
-    /*animation-name: bg;
+    animation-name: bg;
     animation-delay: 5s;
     animation-duration: 30s;
     animation-fill-mode: forwards;
-    animation-iteration-count: infinite;*/
+    animation-iteration-count: infinite;
 }
 
 @keyframes bg{

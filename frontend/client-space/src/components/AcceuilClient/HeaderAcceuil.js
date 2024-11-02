@@ -13,10 +13,10 @@ const HeaderAcceuil = () => {
                     <span>KLEM</span>, l’élégance africaine pour vivre votre histoire
                 </h2>
                 <div className="link">
-                    <NavLink to='/client-creer'>
+                    <NavLink to='/createClothes'>
                             <li>Créer un vêtement</li>
                     </NavLink>
-                    <NavLink to='client-models'>
+                    <NavLink to='models'>
                             <li>Models</li>
                     </NavLink>
                 </div>
