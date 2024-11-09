@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../assets/css/createClothes.css'
+import './createClothes.css'
 import NavBar from '../components/NavBar';
 import PopUpProfil from '../components/PopUpProfil';
 import ChooseModel from '../components/createClothes/ChooseModel';

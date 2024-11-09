@@ -1,9 +1,128 @@
-import React, {useEffect} from 'react';
-import '../../assets/css/presentationModels.css'
+import React, {useEffect, useState} from 'react';
+import '../presentationModels.css'
 import { NavLink } from 'react-router-dom';
-
+import ItemModels from './itemModels';
 
 const PresentationModels = () => {
+
+    let itemList1 = [
+        {
+            image: './img/models/boubou-.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+
+        },
+        {
+            image: './img/models/boubou-.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+
+        },
+        {
+            image: './img/models/boubou2.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+
+        },
+        {
+            image: './img/models/boubou3.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+
+        },
+        {
+            image: './img/models/boubou4.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+
+        }
+    ]
+
+    let itemList2 = [
+        {
+            image: './img/models/kaftan.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+        },
+        {
+            image: './img/models/kaftan1.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+        },
+        {
+            image: './img/models/kaftan2.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+        },
+        {
+            image: './img/models/kaftan3.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+        },
+        {
+            image: './img/models/kaftan4.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+        }
+    ]
+
+    let itemList3 = [
+        {
+            image: './img/models/costume.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+        },
+        {
+            image: './img/models/costume1.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+        },
+        {
+            image: './img/models/costume2.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+        },
+        {
+            image: './img/models/costume3.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+        },
+        {
+            image: './img/models/costume4.jpg',
+            categorie: 'boubou',
+            nom: 'boubou',
+            type: 'Vêtement pour Hommes',
+            price: 5000
+        }
+    ]
 
     useEffect(()=>{
         let scroll1 = document.querySelector('.scroll-button1')
@@ -37,7 +156,7 @@ const PresentationModels = () => {
             })  
        });
 
-               backBtn1.addEventListener('click',()=>{
+        backBtn1.addEventListener('click',()=>{
             slider1.style.scrollBehavior = 'smooth'
             slider1.scrollLeft -= 280
         })
@@ -64,7 +183,6 @@ const PresentationModels = () => {
             slider3.scrollLeft += 280
         })
 
-
     })
 
 
@@ -80,65 +198,13 @@ const PresentationModels = () => {
                             <h3>Modèles en <span>Boubou</span></h3>
 
                             <div className="scroll">
-                            <div className="images">
-
-                            <figure className='item'>
-                                <img src="./img/models/boubou-.jpg" alt="vêtement en boubou" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>                           
-
-                            <figure className='item'>
-                                <img src="./img/models/boubou.jpg" alt="vêtement en boubou" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/boubou2.jpg" alt="vêtement en boubou" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/boubou3.jpg" alt="vêtement en boubou" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/boubou4.jpg" alt="vêtement en boubou" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/boubou4.jpg" alt="vêtement en boubou" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-
-                            </div>
+                                <div className="images">
+                                    {itemList1
+                                        .map((item, index)=>(
+                                            <ItemModels key={index} item={item} />
+                                        ))
+                                    }
+                                </div>
                             </div>
 
                             <div className="scroll-button scroll-button1">
@@ -158,62 +224,15 @@ const PresentationModels = () => {
                             <h3>Modèles en <span>Kaftan</span></h3>
                             
                             <div className="scroll">
-
-                            <div className="images">
-
-                            <figure className='item'>
-                                <img src="./img/models/kaftan.jpg" alt="vêtement Kaftan" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/kaftan1.jpg" alt="vêtement Kaftan" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/kaftan2.jpg" alt="vêtement Kaftan" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/kaftan3.jpg" alt="vêtement Kaftan" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/kaftan4.jpg" alt="vêtement Kaftan" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-
+                                <div className="images">
+                                    {itemList2
+                                        .map((item, index)=>(
+                                            <ItemModels key={index} item={item} />
+                                        ))
+                                    }
+                                </div>
                             </div>
 
-                            </div>
-                            
                             <div className="scroll-button scroll-button2">
                                 <button className='scroll1'>
                                     <img src="./img/icons/previous.ico" alt="prev" />
@@ -233,59 +252,14 @@ const PresentationModels = () => {
                             <h3> Vêtements tailleurs </h3>
 
                             <div className="scroll">
-                            
-                            <div className="images slider" >
-                            <figure className='item'>
-                                <img src="./img/models/costume.jpg" alt="vêtement tailleur" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/costume1.jpg" alt="vêtement tailleur" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/costume2.jpg" alt="vêtement tailleur" />
-                                <figcaption><p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/costume3.jpg" alt="vêtement tailleur" />
-                                <figcaption>
-                                    <p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
-                            <figure className='item'>
-                                <img src="./img/models/costume4.jpg" alt="vêtement tailleur" />
-                                <figcaption>
-                                    <p className="nom">Lorem, ipsum.</p>
-                                    <p className="type">Lorem.</p>
-                                    <p className="prix">
-                                        <span className="value">5000</span><span className="monnaie">$</span>
-                                    </p>
-                                </figcaption>
-                            </figure>
+                                <div className="images slider" >
+                                    {itemList3
+                                        .map((item, index)=>(
+                                            <ItemModels key={index} item={item} />
+                                        ))
+                                    }
+                                </div>
                             </div>
-
-                            </div>
-
 
                             <div className="scroll-button scroll-button3">
                                 <button className='scroll1'>
@@ -299,11 +273,8 @@ const PresentationModels = () => {
                                 <NavLink to='#'>VOIR PLUS</NavLink>    
                             </span>
                         </section>
-
                     </div>
-
                </div>
-
         </div>
     );
 };

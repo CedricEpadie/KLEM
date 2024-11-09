@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
-import '../assets/css/popUpProfil.css'
+import './popUpProfil.css'
 
 
 const PopUpProfil = () => {

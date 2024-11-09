@@ -20,16 +20,16 @@
 
 @font-face {
     font-family: 'Playfair';
-    src: url('../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+    src: url('../assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
 }
 @font-face {
     font-family: 'Poppins-light';
-    src: url('../fonts/Poppins-ExtraLight.ttf');
+    src: url('../assets/fonts/Poppins-ExtraLight.ttf');
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-Regular.ttf');
+    src: url('../assets/fonts/Poppins-Regular.ttf');
 }
 
 /*body{

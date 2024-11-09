@@ -1,8 +1,28 @@
 import React from 'react';
-import '../../assets/css/commandeRecente.css'
-
+import '../commandeRecente.css'
+import FigureCommandeRecente from './FigureCommandeRecente';
 
 const CommendeRecente = () => {
+
+    let figure = [
+        {
+            img :  "bg.jpeg",
+            details :   "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit est soluta repudiandae  doloribus perferendis vitae beatae vel, deleniti                     optio, ab necessitatibus voluptatem obcaecati tempora ex!",
+            montant:  5000,
+            qte:  18,
+            adress:  "75 Rue du Pont",
+            dateLivraison:  '24-04-2007' 
+        },
+        {
+            img :  "bg.jpeg",
+            details :   "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit est soluta repudiandae  doloribus perferendis vitae beatae vel, deleniti                     optio, ab necessitatibus voluptatem obcaecati tempora ex!",
+            montant:  10000,
+            qte:  2,
+            adress:  "78 Rue la cité",
+            dateLivraison:  '24-04-2010' 
+        }
+    ]
+
     return (
         <div className='containt'>
             <section className="commande-recentes" id='client-activite'>
@@ -14,36 +34,14 @@ const CommendeRecente = () => {
                         AUCUNE COMMANDE RÉCENTE TROUVÉE...
                     </div>
                     <div className="figures">
-                        <figure>            
-                            <img src="./img/models/boubou-.jpg" alt="vêtement en boubou" />
-                            <p className='details-client'>
-                                Lorem ipsum dolor sit amet consectetur 
-                                adipisicing elit. Numquam, maiores odio 
-                                dolorum explicabo, eligendi veniam perspiciatis 
-                                itaque, quos soluta cumque qui fugiat eaque nisi 
-                                molestias dicta! Consectetur, dignissimos perspiciatis. 
-                                Velit?
-                            </p>
-                            <p className='details'>
-                                <p className="Montant">
-                                    <span className='descript'>Montant: </span>
-                                    <span className='prix'>
-                                        <span>5000</span>
-                                        <span>FCFA</span>
-                                    </span>
-                                </p>
-                                <p className="qte">
-                                    <span className='descript'>Qte: </span><span>5</span>
-                                </p>
-                                <p className="adress">
-                                    <span className='descript'>Adresse: </span><span>550-Rue Du pont</span>
-                                </p>
-                                <p className='date-lvrs'>
-                                    <span className='descript'>Date de livraison: </span>
-                                    <span>12 Juillet 2006</span>
-                                </p>
-                            </p>       
-                        </figure>                        
+                        {figure
+                        .map((commande, index)=>(
+                            <FigureCommandeRecente 
+                                key={index} commande={commande}
+                            />
+                        ))
+
+                        }
                     </div>
                 </div>
             </section>

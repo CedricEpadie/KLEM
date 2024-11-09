@@ -20,16 +20,16 @@
 
 @font-face {
     font-family: 'Playfair';
-    src: url('../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+    src: url('../assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
 }
 @font-face {
     font-family: 'Poppins-light';
-    src: url('../fonts/Poppins-ExtraLight.ttf');
+    src: url('../assets/fonts/Poppins-ExtraLight.ttf');
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-Regular.ttf');
+    src: url('../assets/fonts/Poppins-Regular.ttf');
 }
 
 /*body{
@@ -48,7 +48,7 @@
     width: 100%;
     padding: 0.5em 2em 0 3em;
     font-family: 'Playfair', 'serif';
-    background: url('../../../public/img/bg-1.jpg');
+    background: url('../../public/img/bg-1.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -56,13 +56,13 @@
     flex-direction: column;
     overflow-x:hidden ;
 
-    animation-name: bg;
+    /*animation-name: bg;
     animation-delay: 5s;
     animation-duration: 30s;
     animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite;*/
 }
-
+/*
 @keyframes bg{
     from{
         background: url('../../../public/img/bg-1.jpg');
@@ -95,7 +95,7 @@
         background-attachment: fixed;
     }
 }
-
+*/
 
 .header .next-head{
     text-align: center;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '../../assets/css/chooseCouleur.css'
+import '../chooseCouleur.css'
 
 
 const ChooseCouleur = () => {

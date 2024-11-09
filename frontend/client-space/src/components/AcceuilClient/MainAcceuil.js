@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/mainAcceuil.css'
+import '../mainAcceuil.css'
 import PresentationModels from './PresentationModels';
 import CommandeRecente from './CommandeRecente'
 
@@ -10,7 +10,7 @@ const MainAcceuil = () => {
         <div className="main-accueil">
             
             <CommandeRecente/>
-            {/*<PresentationModels/>*/}
+            <PresentationModels/>
             
         </div>
     );
