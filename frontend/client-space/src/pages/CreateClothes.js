@@ -4,10 +4,12 @@ import NavBar from '../components/NavBar';
 import PopUpProfil from '../components/PopUpProfil';
 import ChooseModel from '../components/createClothes/ChooseModel';
 import ChooseCouleur from '../components/createClothes/ChooseCouleur';
-
+import FigureVetement from './figureVetement';
+import axios from "axios"
 
 const CreateClothes = () => {
     const [choose, setChoose] = useState(<ChooseModel/>)
+    const [datas, setDatas] = useState([])
 
     useEffect(()=>{
         let navbar = document.querySelector(".navbar nav")
@@ -49,37 +51,16 @@ const CreateClothes = () => {
         })
 
         //Requête de récupération des images depuis l'API
-        let xhr = new XMLHttpRequest()
-        let data;
-        let contentClothes = document.querySelector(".vetements")
-        xhr.open('GET', 'http://localhost:3010/api/vetements',true)
-        xhr.onload = function(){
-            data = JSON.parse(xhr.responseText)
-            data.forEach(data=>{
-                let figure = document.createElement("figure")
-                figure.innerHTML = `
-                    <img src="./img/models/${data.image}" alt="vetement" class='model' id=${data.id}/>
-                    <figcaption>
-                        <img src="./img/icons/upload.svg" alt="upload" />                            
-                    </figcaption>
-                `
-                contentClothes.appendChild(figure)
-            })
-            contentClothes = document.querySelector(".vetements")
-            if (contentClothes.childNodes.length > data.length) {
-                for (let i = 0; i < data.length; i++) {
-                    contentClothes.removeChild(contentClothes.lastElementChild)                   
-                }
-            }
-        }
-        xhr.send()
+        axios.get("http://localhost:3010/api/vetements")
+        .then((res) => setDatas(res.data));
 
         //Gestion de l'affichage de chaque image par catégorie
+        let contentClothes = document.querySelector(".vetements")
         let categories =  document.querySelectorAll(".genre input[type='radio']")
         categories.forEach(categorie=>{
             categorie.addEventListener("click",()=>{
                 contentClothes.innerHTML = ''
-                data.forEach(client=>{
+                datas.forEach(client=>{
                     if (client.genre === categorie.id) {
                         let figure = document.createElement("figure")
                             figure.innerHTML = `
@@ -106,37 +87,19 @@ const CreateClothes = () => {
                 <div className="chooses">
                    <div className="choose-container">
                         <div className="images">
-                            {/*<div className="vues">
-                                <img src="./img/models/boubou2.jpg" alt="" />
-                            </div>
-                            <div className="vues">
-                                <img src="./img/models/boubou2.jpg" alt="" />
-                            </div>*/}
                         </div>
                         <div className = "game-color">
-                            {/*<h3>Teintes et  couleur</h3>
-                            <div className="color">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>*/}   
                         </div>
                         <div className = "choose-description">
-                            {/*<h3>Détails de la commande:</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Laudantium consequuntur aut nihil soluta illum dignissimos rem. 
-                                Corrupti expedita, fugit aperiam repudiandae eligendi maiores 
-                                rem necessitatibus. Lorem, ipsum dolor sit amet consectetur 
-                                adipisicing elit. Molestias, rem!
-                            </p>*/}
                         </div>
                    </div>
                    <div className="send">
                         <button className='wait'>Commander</button>
                    </div>
                 </div>
+
                 {choose}
+
                 <div className="bouttons">
                     <button className='select'>Choisir son model</button>
                     <button className="next unclickable" id='button-next' >Étape suivante</button>
@@ -156,52 +119,12 @@ const CreateClothes = () => {
                             <input type="radio" name="choix" id="feminin" />
                         </span>
                     </div>
-                    {/*<h4 className='select-categorie'>Catégorie:</h4>
-                    <div className="categories">
-                        <div className="cat-hommes cat">
-                            <span>
-                                <label htmlFor="categories">Boubou</label>
-                                <input type="radio" name="categories" id="boubou" />
-                            </span>
-                            <span>
-                                <label htmlFor="categories">Costumes</label>
-                                <input type="radio" name="categories" id="costumes" />
-                            </span>
-                            <span>
-                                <label htmlFor="categories">Dashiki</label>
-                                <input type="radio" name="categories" id="dashiki" />
-                            </span>
-                            <span>
-                                <label htmlFor="categories">Sport</label>
-                                <input type="radio" name="categories" id="sport" />
-                            </span>
-                        </div>
-                        <div className="cat-femmes cat">
-                                
-                            <span>
-                                <label htmlFor="categories">Boubou</label>
-                                <input type="radio" name="categories" id="boubou" />
-                            </span>
-                            <span>
-                                <label htmlFor="categories">Costumes</label>
-                                <input type="radio" name="categories" id="costumes" />
-                            </span>
-                            <span>
-                                <label htmlFor="categories">Robes</label>
-                                <input type="radio" name="categories" id="robes" />
-                            </span>
-                            <span>
-                                <label htmlFor="categories">Sport</label>
-                                <input type="radio" name="categories" id="sport" />
-                            </span>
-                            <span>
-                                <label htmlFor="categories">Tenues de mariage</label>
-                                <input type="radio" name='categories' id='mariage'/>
-                            </span>
-                           
-                        </div>
-                    </div>*/}
-                    <div className="vetements">                        
+                    <div className="vetements">  
+                        {datas
+                            .map((client, index)=>(
+                                <FigureVetement key={index} client={client} />
+                            ))
+                        }                      
                     </div>
                     
                 </div>
